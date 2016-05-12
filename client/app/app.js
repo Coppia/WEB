@@ -10,7 +10,8 @@ angular.module('coppiaApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'validation.match'
+  'validation.match',
+  'ui.sortable'
 ])
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider

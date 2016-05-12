@@ -1,1 +1,32 @@
-<div>This is the idea view.</div>
+<!-- <header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>'Allo, 'Allo!</h1>
+    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
+    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
+  </div>
+</header> -->
+
+<div class="container">
+  <form class="idea-form">
+    <div class="form-group">
+      <label for="ideaName">Name:</label>
+      <input type="text" class="form-control" ng-model="$ctrl.ideaName" placeholder="Please enter the name of the Idea">
+    </div>
+    <div class="form-group">
+      <label for="ideaDescription">Description:</label>
+      <input type="text" class="form-control" ng-model="$ctrl.ideaDescription" placeholder="Please enter the description for the Idea">
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="$ctrl.addIdea()">Add New Idea</button>
+  </form>
+
+  <div class="row">
+    <div class="col-lg-12" ui-sortable>
+      <h1 class="page-header">Ideas:</h1>
+      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="idea in $ctrl.ideas" style="cursor: move;">
+        <li><a href="#" uib-tooltip="{{idea.description}}">{{idea.name}}<button type="button" class="close" ng-click="$ctrl.deleteIdea(idea)">&times;</button></a></li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
