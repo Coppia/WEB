@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 var InterviewSchema = new mongoose.Schema({
   name: String,
-  info: String,
+  description: String,
   active: Boolean
 });
 
