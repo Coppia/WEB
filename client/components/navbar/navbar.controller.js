@@ -9,9 +9,6 @@ class NavbarController {
     'title': 'Ideas',
     'state': 'idea'
   }, {
-    'title': 'Notes',
-    'state': 'note'
-  },{
     'title': 'Interviews',
     'state': 'interview'
   }];
