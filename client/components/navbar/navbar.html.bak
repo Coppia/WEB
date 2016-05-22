@@ -1,0 +1,71 @@
+
+
+<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController" style="margin-bottom: 0">
+  <div class="navbar-header">
+    <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="/" class="navbar-brand">Coppia</a>
+  </div>
+  <div class="navbar-default sidebar" role="navigation" id="navbar-main">
+      <div class="sidebar-wrapper navbar-collapse">
+        <ul class="sidebar-nav" id="side-menu">
+          <li>
+            <a ui-sref="main">
+              <button class="btn btn-default" type="button">
+                  <i class="fa fa-home" style="font-size: 36px;"></i>
+              </button><br>
+              Home
+            </a>
+          </li>
+          <li>
+            <a ui-sref="idea">
+              <button class="btn btn-default" type="button">
+                  <i class="fa fa-plus" style="font-size: 36px;"></i>
+              </button><br>
+              Add
+            </a>
+          </li>
+          <li>
+            <a ui-sref="idea">
+              <button class="btn btn-default" type="button">
+                  <i class="fa fa-lightbulb-o" style="font-size: 36px;"></i>
+              </button><br>
+              Ideas
+            </a>
+          </li>
+          <li>
+            <a ui-sref="interview">
+              <button class="btn btn-default" type="button">
+                  <i class="fa fa-users" style="font-size: 36px;"></i>
+              </button><br>
+              Interviews
+            </a>
+          </li>
+          <!-- <li ng-repeat="item in nav.menu" ui-sref-active="active">
+              <a ui-sref="{{item.state}}">{{item.title}}</a>
+          </li> -->
+        </ul>
+      </div>
+  </div>
+    <!-- <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+        <li ng-show="nav.isLoggedIn()" ng-repeat="item in nav.menu" ui-sref-active="active">
+            <a ui-sref="{{item.state}}">{{item.title}}</a>
+        </li>
+        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
+        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
+        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+        <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
+      </ul>
+    </div> -->
+</div>
