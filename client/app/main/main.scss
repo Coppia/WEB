@@ -25,3 +25,18 @@
 .navbar-text {
   margin-left: 15px;
 }
+
+.panel-heading {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.panel-body ul {
+    -webkit-padding-start: 0;
+}
+
+.panel-body ul li {
+    text-decoration: none;
+    display: block;
+    font-size: 12px;
+}

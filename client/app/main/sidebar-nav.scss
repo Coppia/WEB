@@ -7,7 +7,8 @@
 /* Toggle Styles */
 
 #wrapper {
-    padding-left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -21,10 +22,10 @@
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 150px;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -150px;
     overflow-y: auto;
     background: #EAEAEA;
     -webkit-transition: all 0.5s ease;
@@ -34,7 +35,7 @@
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 150px;
 }
 
 #page-content-wrapper {
@@ -109,6 +110,10 @@
 //     background: rgba(255,255,255,0.2);
 // }
 
+.sidebar-nav li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
     text-decoration: none;
