@@ -25,11 +25,16 @@
     <!--[if lt IE 7]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <navbar></navbar>
+      </div>
+      <div id="page-content-wrapper">
+        <div ui-view=""></div>
+        <footer></footer>
+      </div>
 
-    <!-- Add your site or application content here -->
-    <navbar></navbar>
-    <div ui-view=""></div>
-    <footer></footer>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
