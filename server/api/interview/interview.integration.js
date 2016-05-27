@@ -36,7 +36,7 @@ describe('Interview API:', function() {
         .post('/api/interview')
         .send({
           name: 'New Interview',
-          info: 'This is the brand new interview!!!'
+          description: 'This is the brand new interview!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -51,7 +51,7 @@ describe('Interview API:', function() {
 
     it('should respond with the newly created interview', function() {
       newInterview.name.should.equal('New Interview');
-      newInterview.info.should.equal('This is the brand new interview!!!');
+      newInterview.description.should.equal('This is the brand new interview!!!');
     });
 
   });
@@ -79,7 +79,7 @@ describe('Interview API:', function() {
 
     it('should respond with the requested interview', function() {
       interview.name.should.equal('New Interview');
-      interview.info.should.equal('This is the brand new interview!!!');
+      interview.description.should.equal('This is the brand new interview!!!');
     });
 
   });
@@ -92,7 +92,7 @@ describe('Interview API:', function() {
         .put('/api/interview/' + newInterview._id)
         .send({
           name: 'Updated Interview',
-          info: 'This is the updated interview!!!'
+          description: 'This is the updated interview!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -111,7 +111,7 @@ describe('Interview API:', function() {
 
     it('should respond with the updated interview', function() {
       updatedInterview.name.should.equal('Updated Interview');
-      updatedInterview.info.should.equal('This is the updated interview!!!');
+      updatedInterview.description.should.equal('This is the updated interview!!!');
     });
 
   });

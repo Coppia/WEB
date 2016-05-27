@@ -1,9 +1,36 @@
 'use strict';
-(function(){
+
+(function() {
 
 class NoteComponent {
-  constructor() {
-    this.message = 'Hello';
+
+  constructor($http, $scope, socket) {
+    this.$http = $http;
+    this.socket = socket;
+    this.ideas = [];
+
+    $scope.$on('$destroy', function() {
+      socket.unsyncUpdates('note');
+    });
+  }
+
+  $onInit() {
+    this.$http.get('/api/note').then(response => {
+      this.ideas = response.data;
+      this.socket.syncUpdates('idea', this.notes);
+    });
+  }
+
+  addNote() {
+    if (this.noteName) {
+      this.$http.post('/api/note', { name: this.noteName, description: this.noteDescription });
+      this.noteName = '';
+      this.noteDescription = '';
+    }
+  }
+
+  deleteNote(note) {
+    this.$http.delete('/api/note/' + note._id);
   }
 }
 

@@ -4,8 +4,7 @@ import mongoose from 'mongoose';
 
 var NoteSchema = new mongoose.Schema({
   name: String,
-  info: String,
-  active: Boolean
+  description: String
 });
 
 export default mongoose.model('Note', NoteSchema);

@@ -36,7 +36,7 @@ describe('Idea API:', function() {
         .post('/api/idea')
         .send({
           name: 'New Idea',
-          info: 'This is the brand new idea!!!'
+          description: 'This is the brand new idea!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -51,7 +51,7 @@ describe('Idea API:', function() {
 
     it('should respond with the newly created idea', function() {
       newIdea.name.should.equal('New Idea');
-      newIdea.info.should.equal('This is the brand new idea!!!');
+      newIdea.description.should.equal('This is the brand new idea!!!');
     });
 
   });
@@ -79,7 +79,7 @@ describe('Idea API:', function() {
 
     it('should respond with the requested idea', function() {
       idea.name.should.equal('New Idea');
-      idea.info.should.equal('This is the brand new idea!!!');
+      idea.description.should.equal('This is the brand new idea!!!');
     });
 
   });
@@ -92,7 +92,7 @@ describe('Idea API:', function() {
         .put('/api/idea/' + newIdea._id)
         .send({
           name: 'Updated Idea',
-          info: 'This is the updated idea!!!'
+          description: 'This is the updated idea!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -111,7 +111,7 @@ describe('Idea API:', function() {
 
     it('should respond with the updated idea', function() {
       updatedIdea.name.should.equal('Updated Idea');
-      updatedIdea.info.should.equal('This is the updated idea!!!');
+      updatedIdea.description.should.equal('This is the updated idea!!!');
     });
 
   });

@@ -36,7 +36,7 @@ describe('Note API:', function() {
         .post('/api/note')
         .send({
           name: 'New Note',
-          info: 'This is the brand new note!!!'
+          description: 'This is the brand new note!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -51,7 +51,7 @@ describe('Note API:', function() {
 
     it('should respond with the newly created note', function() {
       newNote.name.should.equal('New Note');
-      newNote.info.should.equal('This is the brand new note!!!');
+      newNote.description.should.equal('This is the brand new note!!!');
     });
 
   });
@@ -79,7 +79,7 @@ describe('Note API:', function() {
 
     it('should respond with the requested note', function() {
       note.name.should.equal('New Note');
-      note.info.should.equal('This is the brand new note!!!');
+      note.description.should.equal('This is the brand new note!!!');
     });
 
   });
@@ -92,7 +92,7 @@ describe('Note API:', function() {
         .put('/api/note/' + newNote._id)
         .send({
           name: 'Updated Note',
-          info: 'This is the updated note!!!'
+          description: 'This is the updated note!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -111,7 +111,7 @@ describe('Note API:', function() {
 
     it('should respond with the updated note', function() {
       updatedNote.name.should.equal('Updated Note');
-      updatedNote.info.should.equal('This is the updated note!!!');
+      updatedNote.description.should.equal('This is the updated note!!!');
     });
 
   });

@@ -4,8 +4,7 @@ import mongoose from 'mongoose';
 
 var InterviewSchema = new mongoose.Schema({
   name: String,
-  description: String,
-  active: Boolean
+  description: String
 });
 
 export default mongoose.model('Interview', InterviewSchema);
