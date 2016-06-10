@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">Interviews:</h1>
+    <ul class="nav nav-tabs col-md-4 col-lg-4 col-sm-6" ng-repeat="interview in $ctrl.interviews">
+      <li>
+          <a ui-sref="interviews_edit({id:interview._id})" uib-tooltip="{{interview.description}}">{{interview.name}}</a></li>
+          <button type="button" class="close" ng-click="$ctrl.deleteInterview(interview)">&times;</button>
+    </ul>
+  </div>
+</div>
