@@ -48,7 +48,7 @@ class InterviewComponent {
   deleteInterview(interview) {
       console.log('delete' + interview._id);
     this.$http.delete('/api/interview/' + interview._id);
-    this.$location.path('/interviews');
+    //this.$location.path('/interviews');
   }
 }
 
