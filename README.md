@@ -1,32 +1,31 @@
-# coppia
+# Coppia
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.6.1.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
 
-## Getting Started
+## Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-### Prerequisites
+## Code scaffolding
 
-- [Git](https://git-scm.com/)
-- [Node.js and npm](nodejs.org) Node ^4.2.3, npm ^2.14.7
-- [Bower](bower.io) (`npm install --global bower`)
-- [Ruby](https://www.ruby-lang.org) and then `gem install sass`
-- [Grunt](http://gruntjs.com/) (`npm install --global grunt-cli`)
-- [MongoDB](https://www.mongodb.org/) - Keep a running daemon with `mongod`
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
-### Developing
+## Build
 
-1. Run `npm install` to install server dependencies.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-2. Run `bower install` to install front-end dependencies.
+## Running unit tests
 
-3. Run `mongod` in a separate shell to keep an instance of the MongoDB Daemon running
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-4. Run `grunt serve` to start the development server. It should automatically open the client in your browser when ready.
+## Running end-to-end tests
 
-## Build & development
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
+Before running the tests make sure you are serving the app via `ng serve`.
 
-Run `grunt build` for building and `grunt serve` for preview.
+## Deploying to Github Pages
 
-## Testing
+Run `ng github-pages:deploy` to deploy to Github Pages.
 
-Running `npm test` will run the unit tests with karma.
+## Further help
+
+To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
