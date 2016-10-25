@@ -7,8 +7,8 @@ describe('coppia App', function() {
     page = new CoppiaPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display message saying coppia works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Coppia works!');
   });
 });

@@ -1,4 +1,35 @@
-side-bar {
+:host  {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index:  1000;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;    
     background-color: #4c525d;
+    border-right: 1px solid #eee;
+    text-align: center;
+}
+:host,
+:host a {
     color : #FFFFFF;
+}
+nav>li>a {
+    line-height: .65em;
+    text-decoration: none;
+}
+.nav>li>a>i {
+    display:block;
+    font-size:2em;
+}
+.nav>li>a:hover,
+.nav>li>a.active {
+    color:#5f7e8b;
+    text-decoration: none;
+}
+
+:host .settings {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

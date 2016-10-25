@@ -32,7 +32,7 @@ export class UserService {
   populate() {
     // If JWT detected, attempt to get & store user's info
     if (this.jwtService.getToken()) {
-      this.apiService.get('/user')
+      this.apiService.get('/authenticate')
       .subscribe(
         data => this.setAuth(data.user),
         err => this.purgeAuth()
@@ -61,12 +61,24 @@ export class UserService {
     this.isAuthenticatedSubject.next(false);
   }
 
-  attemptAuth(type, credentials): Observable<User> {
+  attempAuth(credentials): Observable<User> {
+    return this.apiService.post('/authenticate', credentials)
+    .map(
+      data => {
+        if (data && data.success) {
+          this.setAuth(data);
+          return data;
+        };
+      }
+    );
+  }
+
+  attemptAuthX(type, credentials): Observable<User> {
     let route = (type === 'login') ? '/login' : '';
     return this.apiService.post('/users' + route, {user: credentials})
     .map(
       data => {
-        this.setAuth(data.user);
+        this.setAuth(data);
         return data;
       }
     );
@@ -79,11 +91,11 @@ export class UserService {
   // Update the user on the server (email, pass, etc)
   update(user): Observable<User> {
     return this.apiService
-    .put('/user', { user })
+    .put('/authenticate', { user })
     .map(data => {
       // Update the currentUser observable
-      this.currentUserSubject.next(data.user);
-      return data.user;
+      this.currentUserSubject.next(data);
+      return data;
     });
   }
 

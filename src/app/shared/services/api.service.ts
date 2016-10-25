@@ -23,7 +23,7 @@ export class ApiService {
     };
 
     if (this.jwtService.getToken()) {
-      headersConfig['Authorization'] = `Token ${this.jwtService.getToken()}`;
+      headersConfig['x-access-token'] = `${this.jwtService.getToken()}`;
     }
     return new Headers(headersConfig);
   }
@@ -31,6 +31,12 @@ export class ApiService {
   private formatErrors(error: any) {
      return Observable.throw(error.json());
   }
+
+  getWithHeaders(path: string, headers: any): Observable<any> {
+    return this.http.get(`${environment.api_url}${path}`, { headers: new Headers(headers) })
+    .catch(this.formatErrors)
+    .map((res: Response) => res.json());
+  };
 
   get(path: string, params: URLSearchParams = new URLSearchParams()): Observable<any> {
     return this.http.get(`${environment.api_url}${path}`, { headers: this.setHeaders(), search: params })
