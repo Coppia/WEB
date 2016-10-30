@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+
 import { RouterModule }   from '@angular/router';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -11,14 +10,19 @@ import { AppComponent } from './app.component';
 /* Import App Modules */
 import { LoginModule } from './login/login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { IdeasModule } from './ideas/ideas.module';
 
 import {
   ApiService,
   AuthGuardService,
   AuthResolverService,
+  CustomerService,
   DashboardService,
+  IdeaService,
+  InterviewService,
   JwtService,
   SharedModule,
+  SnippetService,
   SideBarComponent,
   UserService
 } from './shared';
@@ -32,10 +36,9 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
     NgbModule,
     DashboardModule,
+    IdeasModule,
     LoginModule,
     rootRouting,
     SharedModule
@@ -44,8 +47,12 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     ApiService,
     AuthGuardService,
     AuthResolverService,
+    CustomerService,
     DashboardService,
+    IdeaService,
+    InterviewService,
     JwtService,
+    SnippetService,
     UserService
   ],
   bootstrap: [AppComponent]

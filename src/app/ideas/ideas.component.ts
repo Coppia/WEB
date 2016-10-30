@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Idea, IdeaService } from '../shared';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-ideas',
+  templateUrl: './ideas.component.html',
+  styleUrls: ['./ideas.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class IdeasComponent implements OnInit {
   ideas: Idea[];
 
   constructor(

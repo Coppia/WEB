@@ -6,7 +6,7 @@
     display: block;
     overflow-x: hidden;
     overflow-y: auto;    
-    background-color: #4c525d;
+    background-color: #1f2735;/* #4c525d;*/
     border-right: 1px solid #eee;
     text-align: center;
 }
@@ -32,4 +32,8 @@ nav>li>a {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+:host .brand img {
+    max-width:100%;
 }

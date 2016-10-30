@@ -2,27 +2,29 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 
-import { DashboardComponent } from './dashboard.component';
+import { IdeasComponent } from './ideas.component';
 import { SharedModule, AuthGuardService } from '../shared';
 
-const dashboardRoutes: Routes = [
+const ideasRoutes: Routes = [
   {
-    path: '',
-    component: DashboardComponent,
+    path: 'ideas',
+    component: IdeasComponent,
     canActivate: [AuthGuardService]
   }
 ];
 
-const dashboardRouting: ModuleWithProviders = RouterModule.forChild(dashboardRoutes);
+const ideasRouting: ModuleWithProviders = RouterModule.forChild(ideasRoutes);
 
 @NgModule({
   imports: [
-    dashboardRouting,
+    ideasRouting,
     SharedModule
   ],
-  declarations: [DashboardComponent],
+  declarations: [
+    IdeasComponent
+  ],
   providers: [
     AuthGuardService
   ]
 })
-export class DashboardModule { }
+export class IdeasModule { }
