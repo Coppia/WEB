@@ -7,8 +7,12 @@ import { RouterModule } from '@angular/router';
 import {MomentModule} from 'angular2-moment';
 
 import { IdeaPreviewComponent } from './idea-helpers';
+import { InterviewPreviewComponent } from './interview-helpers';
+import { SnippetPreviewComponent, SnippetPreviewListComponent } from './snippet-helpers/';
 
 import { ShowAuthedDirective } from './directives';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -16,11 +20,15 @@ import { ShowAuthedDirective } from './directives';
     FormsModule,
     HttpModule,
     MomentModule,
-    RouterModule
+    RouterModule,
+    NgbModule
   ],
   declarations: [
     IdeaPreviewComponent,
-    ShowAuthedDirective
+    InterviewPreviewComponent,
+    ShowAuthedDirective,
+    SnippetPreviewComponent,
+    SnippetPreviewListComponent
   ],
   exports: [
     CommonModule,
@@ -28,8 +36,12 @@ import { ShowAuthedDirective } from './directives';
     HttpModule,
     MomentModule,
     RouterModule,
+    NgbModule,
     IdeaPreviewComponent,
-    ShowAuthedDirective
+    InterviewPreviewComponent,
+    ShowAuthedDirective,
+    SnippetPreviewComponent,
+    SnippetPreviewListComponent
   ]
 })
 export class SharedModule { }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import { ApiService } from './api.service';
-import { Interview } from '../models';
+import { Interview, Customer } from '../models';
 
 @Injectable()
 export class InterviewService {
@@ -35,6 +35,11 @@ export class InterviewService {
   delete(id: number): Observable<any> {
     return this.apiService.delete(`${this.apiPath}${id}`)
            .map(data => data);
+  }
+  
+  customer(id: number): Observable<Customer> {
+     return this.apiService.get(`${this.apiPath}interview_customer/${id}`)
+           .map(data => data[0]);
   }
 
 }

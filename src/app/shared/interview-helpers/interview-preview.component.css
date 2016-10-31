@@ -1,0 +1,6 @@
+:host .profile-image {
+    width: 32px;
+}
+:host .customer-image {
+    width: 64px;
+}

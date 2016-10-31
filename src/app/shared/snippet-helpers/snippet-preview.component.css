@@ -1,0 +1,28 @@
+:host .customer-image {
+    width: 32px;
+}
+:host .snippet-text {
+    display: table;
+    table-layout: fixed;
+    width: 95%;
+    white-space: nowrap;
+}
+ :host .snippet-text > * {
+    display: table-cell;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+:host .snippet-customer {
+    font-weight: bold;
+}
+
+:host .snippet-date {
+    text-transform: uppercase;
+}
+
+:host .snippet-customer,
+:host .snippet-text,
+:host .snippet-date {
+    margin: 0 0 .5rem;
+}

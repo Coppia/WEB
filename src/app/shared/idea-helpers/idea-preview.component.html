@@ -1,9 +1,15 @@
-<div class="panel panel-default idea-preview">
+<div class="panel panel-default idea-preview" (click)="goto()">
   <div class="panel-heading">
     <h3 class="panel-title">{{idea.title}}</h3>
   </div>
   <div class="panel-body">
-    ...
+    <app-snippet-preview-list [ideaId]="idea.id"></app-snippet-preview-list>
   </div>  
-  <div class="panel-footer">{{idea.created_date | amDateFormat:'ll'}}</div>
+  <div class="panel-footer">
+    <span class="profile-tag">
+      <img class="customer-image img-circle" [src]="'http://placebeard.it/64/notag'" alt="placeholder" />
+      {{idea.created_by}}
+    </span>
+    {{idea.created_date | amDateFormat:'MMM D'}}
+  </div>
 </div>

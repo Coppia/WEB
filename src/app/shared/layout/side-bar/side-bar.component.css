@@ -23,9 +23,12 @@ nav>li>a {
     font-size:2em;
 }
 .nav>li>a:hover,
+.nav>li>a:focus,
+.nav>li>a:active,
 .nav>li>a.active {
     color:#5f7e8b;
     text-decoration: none;
+    background-color: transparent!important;
 }
 
 :host .settings {

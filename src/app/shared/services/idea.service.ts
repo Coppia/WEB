@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import { ApiService } from './api.service';
-import { Idea } from '../models';
+import { Idea, Snippet } from '../models';
 
 @Injectable()
 export class IdeaService {
@@ -38,12 +38,24 @@ export class IdeaService {
            .map(data => data);
   }
 
+  snippets(id: number): Observable<Snippet[]> {
+     return this.apiService.get(`${this.apiPath}idea_snippet/${id}`)
+           .map(this.extractSnippets);
+  }
+
+  private extractIdeas(data: Idea[]) {
+    data.forEach((d) => {
+      d.created_date = new Date(d.created_date);
+    });
+    return data;
+  }
+
   private extractIdea(idea: Idea) {
     idea.created_date = new Date(idea.created_date);
     return idea;
   }
 
-  private extractIdeas(data: Idea[]) {
+  private extractSnippets(data: Snippet[]) {
     data.forEach((d) => {
       d.created_date = new Date(d.created_date);
     });

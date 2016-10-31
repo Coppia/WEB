@@ -1,0 +1,10 @@
+<div class="media-left media-middle">
+  <img class="media-object customer-image img-circle" [src]="customer?.image_link || 'http://placebeard.it/64/notag'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
+</div>
+<div class="media-body">
+  <p class="snippet-customer">{{customer?.first_name}} {{customer?.last_name}}</p>  
+  <p class="snippet-text">
+    <span>{{snippet.text}}</span>
+  </p>
+  <p class="snippet-date">{{snippet.created_date | amDateFormat:'MMM D'}}</p>
+</div>

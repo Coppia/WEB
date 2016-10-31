@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Idea } from '../models';
 
 @Component({
@@ -9,9 +11,13 @@ import { Idea } from '../models';
 export class IdeaPreviewComponent implements OnInit {
   @Input() idea: Idea;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  goto() {
+    this.router.navigate(['/ideas', this.idea.id]);
   }
 
 }

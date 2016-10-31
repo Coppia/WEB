@@ -3,7 +3,7 @@ export class Snippet {
     text: string;
     interview_id: number;
     create_user: number;
-    created_date: string;
+    created_date: Date;
     updated_by: number;
     update_datetime: string;
 }

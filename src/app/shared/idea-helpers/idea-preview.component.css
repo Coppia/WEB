@@ -1,8 +1,19 @@
+.idea-preview {
+    cursor: pointer;
+}
 .idea-preview h3 {
-    
+    font-size: 1.65em;
 }
 .idea-preview .panel-heading,
 .idea-preview .panel-footer {
     border: 0;
     background-color: transparent;
+}
+
+.idea-preview .profile-tag {
+    margin-right: 1rem;
+}
+
+.idea-preview .profile-tag .customer-image {
+    width: 32px;
 }
