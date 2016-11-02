@@ -1,6 +1,12 @@
-:host .profile-image {
+.interview-preview .interview-customer {
+    margin-bottom:0;
+}
+.interview-preview .customer-title {
+    color: #4c525d;
+}
+.interview-preview .profile-image {
     width: 32px;
 }
-:host .customer-image {
+.interview-preview .customer-image {
     width: 64px;
 }

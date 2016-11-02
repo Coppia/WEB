@@ -1,21 +1,21 @@
-:host  {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index:  1000;
-    display: block;
+.side-bar:host  {
+    padding: 1em;
     overflow-x: hidden;
-    overflow-y: auto;    
-    background-color: #1f2735;/* #4c525d;*/
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #1f2735;
     border-right: 1px solid #eee;
     text-align: center;
 }
+:host .brand img {
+    width: 100%;
+}
+
 :host,
 :host a {
     color : #FFFFFF;
 }
-nav>li>a {
-    line-height: .65em;
+.nav>li>a {
+    line-height: 1.25em;
     text-decoration: none;
 }
 .nav>li>a>i {
@@ -34,9 +34,6 @@ nav>li>a {
 :host .settings {
     position: absolute;
     bottom: 0;
+    left:0;
     width: 100%;
-}
-
-:host .brand img {
-    max-width:100%;
 }

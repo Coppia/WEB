@@ -72,4 +72,16 @@ export class ApiService {
     .catch(this.formatErrors)
     .map((res:Response) => res.json());
   }
+
+  extractDatas<t>(data: Created[]) {
+    data.forEach((d) => {
+      d.created_datetime = new Date(d.created_datetime);
+    });
+    return data;
+  }
+
+  extractData(data: Created) {
+    data.created_datetime = new Date(data.created_datetime);
+    return data;
+  }
 }

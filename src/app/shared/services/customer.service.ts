@@ -15,12 +15,16 @@ export class CustomerService {
 
   get(): Observable<Customer[]> {
     return this.apiService.get(`${this.apiPath}`)
-           .map(data => data);
+           .map(response => {
+             let result = <Customer[]>this.apiService.extractDatas(response);
+             return result; });
   }
 
   find(id: number): Observable<Customer> {
      return this.apiService.get(`${this.apiPath}${id}`)
-           .map(data => data);
+           .map(response => {
+             let result = <Customer>this.apiService.extractData(response);
+             return result; });
   }
 
   put(customer: Customer): Observable<any> {
@@ -30,7 +34,7 @@ export class CustomerService {
       last_name: customer.last_name,
       email: customer.email,
       image_link: customer.image_link,
-      update_user: customer.update_user
+      updated_by: customer.updated_by
     };
     return this.apiService.put(`${this.apiPath}${customer.id}`, update)
              .map(data => data);

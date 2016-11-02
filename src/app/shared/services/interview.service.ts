@@ -14,12 +14,16 @@ export class InterviewService {
 
   get(): Observable<Interview[]> {
     return this.apiService.get(`${this.apiPath}`)
-           .map(data => data);
+           .map(response => {
+             let result = <Interview[]>this.apiService.extractDatas(response);
+             return result; });
   }
 
   find(id: number): Observable<Interview> {
      return this.apiService.get(`${this.apiPath}${id}`)
-           .map(data => data);
+           .map(response => {
+             let result = <Interview>this.apiService.extractData(response);
+             return result; });
   }
 
   put(interview: Interview): Observable<any> {

@@ -1,20 +1,18 @@
-<div class="interview-preview">
-  <div class="media">
-    <div class="media-body">
-      <p class="interview-customer">{{customer?.first_name}} {{customer?.last_name}}</p>  
-      <p class="customer-title">
-        <span>{{customer?.title || 'no title'}}</span>
-      </p>  
+<div class="card preview interview-preview" (click)="goto()">
+    <div class="card-block">
+      <div class="row">
+        <div class="col-xs">
+          <h4 class="card-title interview-customer">{{customer?.first_name}} {{customer?.last_name}}</h4>  
+          <p class="lead customer-title">
+            <span>{{customer?.title || 'no title'}}</span>
+          </p>
+        </div>
+        <div class="col-xs-2">
+          <img class="media-object customer-image rounded-circle" [src]="customer?.image_link || 'http://placebeard.it/64/notag'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
+        </div>
+      </div>
     </div>
-    <div class="media-right media-middle">
-      <img class="media-object customer-image img-circle" [src]="customer?.image_link || 'http://placebeard.it/64/notag'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
+    <div class="card-footer">
+      <app-card-footer-created [created]="interview"></app-card-footer-created>
     </div>
-  </div>
-  <div class="interview-preview-footer">
-    <span class="profile-tag">
-      <img class="profile-image img-circle" [src]="'http://placebeard.it/64/notag'" alt="placeholder" />
-      {{interview.created_by}}
-    </span>
-    {{interview.created_date | amDateFormat:'MMM D'}}
-  </div>
 </div>

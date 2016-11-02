@@ -14,12 +14,16 @@ export class IdeaService {
 
   get(): Observable<Idea[]> {
     return this.apiService.get(`${this.apiPath}`)
-           .map(this.extractIdeas);
+           .map(response => {
+             let result = <Idea[]>this.apiService.extractDatas(response);
+             return result; });
   }
 
   find(id: number): Observable<Idea> {
      return this.apiService.get(`${this.apiPath}${id}`)
-           .map(this.extractIdea);
+          .map(response => {
+             let result = <Idea>this.apiService.extractData(response);
+             return result; });
   }
 
   put(idea: Idea): Observable<any> {
@@ -40,26 +44,8 @@ export class IdeaService {
 
   snippets(id: number): Observable<Snippet[]> {
      return this.apiService.get(`${this.apiPath}idea_snippet/${id}`)
-           .map(this.extractSnippets);
+           .map(response => {
+             let result = <Snippet[]>this.apiService.extractDatas(response);
+             return result; });
   }
-
-  private extractIdeas(data: Idea[]) {
-    data.forEach((d) => {
-      d.created_date = new Date(d.created_date);
-    });
-    return data;
-  }
-
-  private extractIdea(idea: Idea) {
-    idea.created_date = new Date(idea.created_date);
-    return idea;
-  }
-
-  private extractSnippets(data: Snippet[]) {
-    data.forEach((d) => {
-      d.created_date = new Date(d.created_date);
-    });
-    return data;
-  }
-
 }

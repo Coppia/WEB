@@ -1,0 +1,16 @@
+:host {
+    background-color: #1f2735;
+    color: #FFFFFF;
+    height: 100vh;
+}
+:host .brand img { 
+    display:block;
+    margin:0 auto;
+    max-width: 150px; 
+}
+#app-login,
+#app-login .row {
+    height: 100vh;
+    background-color: #1f2735;
+    color: #FFFFFF;
+}

@@ -14,12 +14,16 @@ export class SnippetService {
 
   get(): Observable<Snippet[]> {
     return this.apiService.get(`${this.apiPath}`)
-           .map(data => data);
+           .map(response => {
+             let result = <Snippet[]>this.apiService.extractDatas(response);
+             return result; });
   }
 
   find(id: number): Observable<Snippet> {
      return this.apiService.get(`${this.apiPath}${id}`)
-           .map(data => data);
+           .map(response => {
+             let result = <Snippet>this.apiService.extractData(response);
+             return result; });
   }
 
   put(snippet: Snippet): Observable<any> {

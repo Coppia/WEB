@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { InterviewService } from '../services';
 import { Interview, Customer } from '../models';
@@ -13,7 +14,7 @@ export class InterviewPreviewComponent implements OnInit {
 
   customer: Customer;
 
-  constructor(private interviewService: InterviewService) {  }
+  constructor(private router: Router, private interviewService: InterviewService) {  }
 
   ngOnInit() {
     this.getMetaData();
@@ -32,4 +33,7 @@ export class InterviewPreviewComponent implements OnInit {
     );
   }
 
+  goto() {
+    this.router.navigate(['/ideas', this.interview.interview_id]);
+  };
 }

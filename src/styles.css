@@ -5,6 +5,20 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.loading {
+    background-color: #1f2735;
+    color: #FFFFFF;
+    height: 100vh;
+}
+.loading .brand img { 
+    display:block;
+    margin:0 auto;
+    max-width: 150px; 
+}
+.stage {
+    background-color: #ffffff; 
+}
+
 /* Masonry Layout */
 .masonry {
  -moz-column-width: 25em;
@@ -23,7 +37,13 @@ body {
 /* End Masonry Layout */
 
 /* Extend Bootstrap */
-.panel:hover {
+.card.preview { cursor:pointer; }
+.card:hover {
     border-color: #5f7e8b;
+}
+
+.card .card-footer {
+    background-color: transparent;
+    border:0;
 }
 /* End Extend Bootstrap */

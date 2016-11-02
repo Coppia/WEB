@@ -1,15 +1,7 @@
-<div class="panel panel-default idea-preview" (click)="goto()">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{idea.title}}</h3>
-  </div>
-  <div class="panel-body">
-    <app-snippet-preview-list [ideaId]="idea.id"></app-snippet-preview-list>
-  </div>  
-  <div class="panel-footer">
-    <span class="profile-tag">
-      <img class="customer-image img-circle" [src]="'http://placebeard.it/64/notag'" alt="placeholder" />
-      {{idea.created_by}}
-    </span>
-    {{idea.created_date | amDateFormat:'MMM D'}}
-  </div>
+<div class="card-block preview idea-preview" (click)="goto()">
+  <h3 class="card-title">{{idea.title}}</h3>
+  <app-snippet-preview-list [ideaId]="idea.id"></app-snippet-preview-list>  
+</div>
+<div class="card-footer">
+  <app-card-footer-created [created]="idea"></app-card-footer-created>
 </div>

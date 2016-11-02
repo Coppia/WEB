@@ -1,9 +1,11 @@
-export class Interview {
+export class Interview implements Created {
     interview_id: number;
     title: string;
     notes: string;
     created_by: string;
-    created_date: string;
+    created_datetime: Date;
+    created_image_link: string;
     updated_by: string;
-    updated_date: string;
+    updated_datetime: Date;
+    updated_image_link: string;
 }
