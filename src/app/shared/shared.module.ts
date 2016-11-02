@@ -8,7 +8,7 @@ import {MomentModule} from 'angular2-moment';
 
 import { IdeaPreviewComponent } from './idea-helpers';
 import { InterviewPreviewComponent } from './interview-helpers';
-import { CardFooterCreatedComponent } from './card-helpers'
+import { CardFooterCreatedComponent } from './card-helpers';
 import { SnippetPreviewComponent, SnippetPreviewListComponent } from './snippet-helpers/';
 
 import { ShowAuthedDirective } from './directives';
