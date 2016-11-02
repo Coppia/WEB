@@ -1,28 +1,35 @@
-:host .customer-image {
+.snippet-preview {
+    margin-bottom: 1rem;
+}
+.snippet-preview-list app-snippet-preview:last-of-type .snippet-preview {
+    margin-bottom:0;
+}
+
+.snippet-preview  .customer-image {
     width: 32px;
 }
-:host .snippet-text {
+.snippet-preview  .snippet-text {
     display: table;
     table-layout: fixed;
     width: 95%;
     white-space: nowrap;
 }
- :host .snippet-text > * {
+.snippet-preview  .snippet-text > * {
     display: table-cell;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-:host .snippet-customer {
+.snippet-preview  .snippet-customer {
     font-weight: bold;
 }
 
-:host .snippet-date {
+.snippet-preview  .snippet-date {
     text-transform: uppercase;
 }
 
-:host .snippet-customer,
-:host .snippet-text,
-:host .snippet-date {
-    margin: 0 0 .5rem;
+.snippet-preview  .snippet-customer,
+.snippet-preview  .snippet-text,
+.snippet-preview  .snippet-date {
+    margin: 0 0 0;
 }

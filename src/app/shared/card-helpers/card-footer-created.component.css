@@ -1,0 +1,11 @@
+:host {
+    font-size: 0.75em;
+}
+.customer-image {
+    max-width: 32px;
+    margin-right: 10px;
+}
+.date-created {
+    margin-left: 2rem;
+    text-transform: uppercase;
+}

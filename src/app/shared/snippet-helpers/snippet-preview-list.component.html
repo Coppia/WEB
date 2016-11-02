@@ -1,5 +1,6 @@
-<ul class="media-list">
-  <li class="media" *ngFor="let snippet of snippets">
-    <app-snippet-preview [snippet]="snippet"></app-snippet-preview>
-  </li>
-</ul>
+<div  class="snippet-preview-list">
+  <app-snippet-preview [snippet]="snippet" *ngFor="let snippet of snippets | slice:0:3"></app-snippet-preview>
+</div>
+<div *ngIf="snippets?.length > 3" class="more">
+  more...
+</div>

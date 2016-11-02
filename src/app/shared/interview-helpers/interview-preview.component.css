@@ -8,5 +8,6 @@
     width: 32px;
 }
 .interview-preview .customer-image {
-    width: 64px;
+    width: 48px;
+    margin-left: auto;
 }

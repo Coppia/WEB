@@ -1,3 +1,6 @@
 :host {
     font-size: .75em;
 }
+.more {
+    text-align: right;
+}

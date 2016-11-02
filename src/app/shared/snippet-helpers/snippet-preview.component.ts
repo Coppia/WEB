@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { InterviewService } from '../services';
 
@@ -7,7 +7,8 @@ import { Snippet, Customer } from '../models';
 @Component({
   selector: 'app-snippet-preview',
   templateUrl: './snippet-preview.component.html',
-  styleUrls: ['./snippet-preview.component.css']
+  styleUrls: ['./snippet-preview.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SnippetPreviewComponent implements OnInit {
   @Input() snippet: Snippet;

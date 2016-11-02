@@ -19,6 +19,10 @@ body {
     background-color: #ffffff; 
 }
 
+.v-scroll {
+    overflow-y: auto;
+}
+
 /* Masonry Layout */
 .masonry {
  -moz-column-width: 25em;
@@ -45,5 +49,6 @@ body {
 .card .card-footer {
     background-color: transparent;
     border:0;
+    padding-top:0;
 }
 /* End Extend Bootstrap */
