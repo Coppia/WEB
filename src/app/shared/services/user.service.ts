@@ -68,7 +68,12 @@ export class UserService {
         if (data && data.success) {
           this.setAuth(data);
           return data;
-        };
+        } else {
+          throw data;
+        }
+      },
+      err => {
+        throw err;
       }
     );
   }

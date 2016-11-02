@@ -12,7 +12,7 @@
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input [(ngModel)]="user.password" id="password"  name="password"
                     type="password" class="validate form-control" placeholder="Password" required>
-                <span>{{errorMsg}}</span>
+                <span *ngIf="errors" class="text-danger">{{errors?.message}}</span>
                 <button (click)="login()" 
                     class="btn btn-lg btn-primary btn-block" 
                     type="submit" name="action">Login</button>   
