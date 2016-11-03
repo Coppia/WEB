@@ -1,5 +1,4 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { IdeasComponent } from './ideas.component';

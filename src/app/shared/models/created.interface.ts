@@ -1,4 +1,4 @@
-interface Created {
+export interface Created {
    created_by: string;
    created_datetime: Date;
    created_image_link: string;

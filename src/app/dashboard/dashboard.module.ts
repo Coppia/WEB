@@ -7,7 +7,7 @@ import { SharedModule, AuthGuardService } from '../shared';
 
 const dashboardRoutes: Routes = [
   {
-    path: '',
+    path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuardService]
   }

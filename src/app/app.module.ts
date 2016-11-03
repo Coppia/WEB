@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
-import { RouterModule }   from '@angular/router';
+import { RouterModule, Routes }   from '@angular/router';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { IdeasModule } from './ideas/ideas.module';
+import { InterviewsModule } from './interviews/interviews.module';
 
 import {
   ApiService,
@@ -27,7 +28,12 @@ import {
   UserService
 } from './shared';
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
+const rootRoutes: Routes = [
+  {
+    path: '', redirectTo: 'dashboard', pathMatch: 'full'
+  }
+];
+const rootRouting: ModuleWithProviders = RouterModule.forRoot(rootRoutes, { useHash: true });
 
 @NgModule({
   declarations: [
@@ -39,6 +45,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     NgbModule.forRoot(),
     DashboardModule,
     IdeasModule,
+    InterviewsModule,
     LoginModule,
     rootRouting,
     SharedModule
