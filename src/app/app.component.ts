@@ -9,13 +9,15 @@ import { UserService } from './shared';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Coppia works!';
+  isAuthenticated: boolean = false;
 
   constructor (
     private userService: UserService
   ) {}
 
   ngOnInit() {
+    this.userService.isAuthenticated.subscribe(authenticated => { this.isAuthenticated = authenticated; });
+
     this.userService.populate();
   }
 }

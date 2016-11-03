@@ -2,3 +2,7 @@
     min-height: 100vh;
     background-color:#ffffff;
 }
+
+.stage.authenticated {
+    padding-top : 1.5rem;
+}

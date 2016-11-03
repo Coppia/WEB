@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <side-bar *showAuthed="true" class="col-xs-2 col-lg-1 side-bar"></side-bar>    
-    <div class="col-xs col-lg stage">
+    <div class="col-xs col-lg stage" [class.authenticated]="isAuthenticated">
       <router-outlet></router-outlet>
     </div>
   </div>
