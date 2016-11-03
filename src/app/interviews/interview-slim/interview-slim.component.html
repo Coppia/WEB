@@ -1,0 +1,18 @@
+<div class="card interview-full">
+  <div class="card-block">
+    <div class="row">
+      <div class="col-xs customer">
+        <h4 class="card-title interview-customer">{{customer?.first_name}} {{customer?.last_name}}</h4>  
+        <p class="lead company-name">
+          <span>{{customer?.company_name }}</span>
+        </p>
+      </div>
+      <div class="col-xs-3 flex-xs-middle text-xs-right">
+        <span class="date-created">{{interview.created_datetime | amDateFormat:'MMM D'}}</span>
+        <span class="profile-tag">
+          {{interview.created_by}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

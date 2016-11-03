@@ -3,6 +3,8 @@ import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { InterviewsComponent } from './interviews.component';
 import { SharedModule, AuthGuardService } from '../shared';
+import { InterviewFullComponent } from './interview-full/interview-full.component';
+import { InterviewSlimComponent } from './interview-slim/interview-slim.component';
 
 const interviewsRoutes: Routes = [
   {
@@ -20,7 +22,9 @@ const interviewsRouting: ModuleWithProviders = RouterModule.forChild(interviewsR
     SharedModule
   ],
   declarations: [
-    InterviewsComponent
+    InterviewsComponent,
+    InterviewFullComponent,
+    InterviewSlimComponent
   ],
   providers: [
     AuthGuardService

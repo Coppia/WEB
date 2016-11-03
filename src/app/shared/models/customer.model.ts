@@ -4,6 +4,8 @@ export class Customer implements Created {
     last_name: string;
     email: string;
     image_link: string;
+    title: string;
+    company_name: string;
     created_by: string;
     created_datetime: Date;
     created_image_link: string;

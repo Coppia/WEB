@@ -1,0 +1,15 @@
+
+.interview-customer {
+    font-size: 1.15rem;
+    margin-bottom: 0;
+}
+.company-name {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.profile-tag,
+date-created {
+    display:block;
+    text-align: right;
+}

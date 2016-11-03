@@ -1,0 +1,24 @@
+<div class="card interview-full">
+  <div class="card-block">
+    <div class="row">
+      <div class="col-xs-3 col-xl-2 customer">
+        <img class="media-object customer-image rounded-circle" [src]="customer?.image_link || 'http://placebeard.it/64/notag'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
+        <h4 class="card-title interview-customer">{{customer?.first_name}} {{customer?.last_name}}</h4>  
+        <p class="lead company-name">
+          <span>{{customer?.company_name }}</span>
+        </p>
+      </div>
+      <div class="col-xs">
+        <div class="row flex-items-xs-between">
+          <div class="col-xs col-xl">
+            <h5 class="title">Summary</h5>
+          </div>
+          <div class="col-xs-12 col-xl-4">
+            <app-card-footer-created [created]="interview" class="text-xs-right"></app-card-footer-created>
+          </div>
+        </div>
+        <div class="notes">{{interview.notes}}</div>
+      </div>
+    </div>
+  </div>
+</div>

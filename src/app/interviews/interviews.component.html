@@ -1,3 +1,14 @@
-<p>
-  interviews works!
-</p>
+<div class="row flex-items-xs-right mb-1">
+  <div class="col-xs-2">
+    <a routerLink="./add" class="btn btn-secondary float-xs-right" role="button">Add Interview</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs">
+    <app-interview-full *ngFor="let interview of interviews | slice:0:4" [interview]="interview" (click)="goto(interview)"></app-interview-full>
+    
+  </div>    
+  <div class="col-xs-5 v-scroll">      
+      <app-interview-slim *ngFor="let interview of interviews | slice:0:interviewCount" [interview]="interview" (click)="goto(interview)"></app-interview-slim>
+    </div>
+</div>

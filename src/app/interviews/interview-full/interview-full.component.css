@@ -1,0 +1,24 @@
+.customer {
+    text-align: center;
+}
+.interview-customer {
+    font-size: 1.15rem;
+    margin-bottom: 0;
+}
+.company-name {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+.customer-image {
+    max-width: 64px;
+    max-height: 64px;
+    margin: 0 auto 0.75rem;
+}
+.title {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding-top: 0.5em;
+}
+.notes {
+    font-size : 0.9rem;
+}
