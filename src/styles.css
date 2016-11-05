@@ -23,6 +23,10 @@ body {
     overflow-y: auto;
 }
 
+[contenteditable]:focus {
+    outline: transparent;
+}
+
 /* Extend Bootstrap */
 .card { cursor:pointer; }
 .card:hover {

@@ -11,7 +11,7 @@ import { InterviewPreviewComponent } from './interview-helpers';
 import { CardFooterCreatedComponent } from './card-helpers';
 import { SnippetPreviewComponent, SnippetPreviewListComponent } from './snippet-helpers/';
 
-import { ShowAuthedDirective } from './directives';
+import { ShowAuthedDirective, ContenteditableModelDirective } from './directives';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -26,6 +26,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   declarations: [
     CardFooterCreatedComponent,
+    ContenteditableModelDirective,
     IdeaPreviewComponent,
     InterviewPreviewComponent,
     ShowAuthedDirective,
@@ -40,6 +41,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     NgbModule,
     CardFooterCreatedComponent,
+    ContenteditableModelDirective,
     IdeaPreviewComponent,
     InterviewPreviewComponent,
     ShowAuthedDirective,

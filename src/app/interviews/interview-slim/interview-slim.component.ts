@@ -8,7 +8,7 @@ import { InterviewService, Interview, Customer } from '../../shared';
   styleUrls: ['./interview-slim.component.css']
 })
 export class InterviewSlimComponent implements OnInit {
-  
+
   @Input() interview: Interview;
   customer: Customer;
 

@@ -1,0 +1,13 @@
+
+<div class="row flex-items-xs-right mb-1">
+  <div class="col-xs-2">
+    <button class="btn btn-secondary float-xs-right" role="button" (click)="save()">Save Interview</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs">
+    <h1 class="interview-title" [(contenteditableModel)]="interview.title" [defaultValue]="'Interview Title'"></h1>
+    <div class="interview-customer-lookup"  [(contenteditableModel)]="lookupCustomer">Add customer's email address or the data source</div>
+    <div class="interview-notes" [(contenteditableModel)]="interview.notes"></div>
+  </div>
+</div>

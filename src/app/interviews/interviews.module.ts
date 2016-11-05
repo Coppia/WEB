@@ -2,14 +2,30 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { InterviewsComponent } from './interviews.component';
-import { SharedModule, AuthGuardService } from '../shared';
 import { InterviewFullComponent } from './interview-full/interview-full.component';
 import { InterviewSlimComponent } from './interview-slim/interview-slim.component';
+import { EditorComponent } from './editor/editor.component';
+import { EditableInterviewResolver } from './editor/editable-interview-resolver.service';
+
+import { SharedModule, AuthGuardService } from '../shared';
 
 const interviewsRoutes: Routes = [
   {
     path: 'interviews',
     component: InterviewsComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'interviews/:id',
+    component: EditorComponent,
+    canActivate: [AuthGuardService],
+    resolve: {
+      interview: EditableInterviewResolver
+    }
+  },
+  {
+    path: 'interviews/add',
+    component: EditorComponent,
     canActivate: [AuthGuardService]
   }
 ];
@@ -24,10 +40,12 @@ const interviewsRouting: ModuleWithProviders = RouterModule.forChild(interviewsR
   declarations: [
     InterviewsComponent,
     InterviewFullComponent,
-    InterviewSlimComponent
+    InterviewSlimComponent,
+    EditorComponent
   ],
   providers: [
-    AuthGuardService
+    AuthGuardService,
+    EditableInterviewResolver
   ]
 })
 export class InterviewsModule { }
