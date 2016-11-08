@@ -20,7 +20,7 @@ export class InterviewFullComponent implements OnInit {
   }
 
   getMetaData() {
-    this.interviewService.customer(this.interview.interview_id)
+    this.interviewService.customer(this.interview.id)
     .subscribe(
       data => {
           this.customer = data;

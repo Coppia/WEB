@@ -9,6 +9,6 @@
     
   </div>    
   <div class="col-xs-5 v-scroll">      
-      <app-interview-slim *ngFor="let interview of interviews | slice:0:interviewCount" [interview]="interview" (click)="goto(interview)"></app-interview-slim>
+      <app-interview-slim *ngFor="let interview of interviews | slice:4:interviewCount" [interview]="interview" (click)="goto(interview)"></app-interview-slim>
     </div>
 </div>

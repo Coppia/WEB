@@ -15,7 +15,7 @@ export class EditableInterviewResolver implements Resolve<any> {
         return this.interviewService.find(route.params['id'])
             .map(
                 data => {
-                    return data[0];
+                    return data;
                 }
             )
             .catch((err) => this.router.navigateByUrl('/interviews'));

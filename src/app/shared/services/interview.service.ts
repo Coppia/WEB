@@ -27,7 +27,7 @@ export class InterviewService {
   }
 
   put(interview: Interview): Observable<any> {
-    return this.apiService.put(`${this.apiPath}${interview.interview_id}`, interview)
+    return this.apiService.put(`${this.apiPath}${interview.id}`, interview)
              .map(data => data);
   }
 
@@ -43,7 +43,7 @@ export class InterviewService {
   
   customer(id: number): Observable<Customer> {
      return this.apiService.get(`${this.apiPath}interview_customer/${id}`)
-           .map(data => data[0]);
+           .map(data => data);
   }
 
 }

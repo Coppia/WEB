@@ -21,7 +21,7 @@ export class InterviewPreviewComponent implements OnInit {
   }
 
   getMetaData() {
-    this.interviewService.customer(this.interview.interview_id)
+    this.interviewService.customer(this.interview.id)
     .subscribe(
       data => {
           this.customer = data;
@@ -34,6 +34,6 @@ export class InterviewPreviewComponent implements OnInit {
   }
 
   goto() {
-    this.router.navigate(['/ideas', this.interview.interview_id]);
+    this.router.navigate(['/ideas', this.interview.id]);
   };
 }

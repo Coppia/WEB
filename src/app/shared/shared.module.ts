@@ -6,12 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import {MomentModule} from 'angular2-moment';
 
+import { CardFooterCreatedComponent } from './card-helpers';
+import { CustomerLookupComponent } from './customer-lookup';
+import { ShowAuthedDirective, ContenteditableModelDirective } from './directives';
 import { IdeaPreviewComponent } from './idea-helpers';
 import { InterviewPreviewComponent } from './interview-helpers';
-import { CardFooterCreatedComponent } from './card-helpers';
 import { SnippetPreviewComponent, SnippetPreviewListComponent } from './snippet-helpers/';
-
-import { ShowAuthedDirective, ContenteditableModelDirective } from './directives';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,6 +27,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     CardFooterCreatedComponent,
     ContenteditableModelDirective,
+    CustomerLookupComponent,
     IdeaPreviewComponent,
     InterviewPreviewComponent,
     ShowAuthedDirective,
@@ -42,6 +43,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     CardFooterCreatedComponent,
     ContenteditableModelDirective,
+    CustomerLookupComponent,
     IdeaPreviewComponent,
     InterviewPreviewComponent,
     ShowAuthedDirective,

@@ -1,4 +1,5 @@
 export * from './card-helpers';
+export * from './customer-lookup';
 export * from './directives';
 export * from './idea-helpers';
 export * from './interview-helpers';

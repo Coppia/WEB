@@ -35,7 +35,7 @@ export class EditorComponent implements OnInit {
 
     this.userService.currentUser.subscribe(
       user => {
-        if (this.interview && this.interview.interview_id) {
+        if (this.interview && this.interview.id) {
           this.interview.updated_by = user.username;
         } else {
           this.interview.created_by = user.username;
@@ -45,7 +45,7 @@ export class EditorComponent implements OnInit {
   }
 
   getMetaData() {
-    this.interviewService.customer(this.interview.interview_id)
+    this.interviewService.customer(this.interview.id)
     .subscribe(
       data => {
           this.customer = data;
@@ -57,7 +57,7 @@ export class EditorComponent implements OnInit {
   }
 
   save() {
-    if (this.interview && this.interview.interview_id) { // todo: Resolve! interviews service get returns object with .id not .interview_id.
+    if (this.interview && this.interview.id) {
       this.interviewService.put(this.interview).subscribe(
         data => {},
         err => {

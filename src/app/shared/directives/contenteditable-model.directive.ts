@@ -11,7 +11,6 @@ export class ContenteditableModelDirective implements OnInit {
   @Input()
   set contenteditableModel(model: any)
   {
-    this.logIt(`Input().set`);
     if (!this.isLoaded) {
       this.originalValue = model;
     }
@@ -61,13 +60,8 @@ export class ContenteditableModelDirective implements OnInit {
   }
 
   ngOnInit() {
-    this.logIt(`OnInit`);
     this.defaultValue = this.defaultValue || this.element.nativeElement.innerText || 'Just start typing...';
     this.setValue(this.originalValue || this.defaultValue);
     this.isLoaded = true;
-  }
-
-  logIt(msg: string) {
-    console.log(`${msg}`);
   }
 }

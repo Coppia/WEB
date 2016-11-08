@@ -1,5 +1,5 @@
 export class Interview implements Created {
-    interview_id: number;
+    id: number;
     title: string;
     notes: string;
     created_by: string;

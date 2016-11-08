@@ -2,7 +2,6 @@ export * from './api.service';
 export * from './auth-guard.service';
 export * from './auth-resolver.service';
 export * from './customer.service';
-export * from './dashboard.service';
 export * from './idea.service';
 export * from './interview.service';
 export * from './jwt.service';
