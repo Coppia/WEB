@@ -1,27 +1,16 @@
-import { Directive, ElementRef, EventEmitter, HostBinding, HostListener, Input, Output, OnInit } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
 
+//TODO: Rewrite this component. It is too buggy for input/outputs.
 @Directive({
   selector: '[contenteditableModel]'
 })
-export class ContenteditableModelDirective implements OnInit {
-  private isLoaded: boolean = false;
-  private originalValue: any;
-  private currentValue: any;
+export class ContenteditableModelDirective implements OnChanges, OnInit {
 
-  @Input()
-  set contenteditableModel(model: any)
-  {
-    if (!this.isLoaded) {
-      this.originalValue = model;
-    }
-  }
-  get contenteditableModel() {
-    let value = this.getValue();
-    return (this.defaultValue === value) ? this.originalValue : value;
-  }
+  private valueSet: boolean = false;
+  private updatingModel = false;
 
+  @Input() contenteditableModel: string;
   @Input() defaultValue: any;
-
   @Output() contenteditableModelChange = new EventEmitter();
 
   @HostBinding('attr.contenteditable') contenteditable = 'true';
@@ -34,34 +23,45 @@ export class ContenteditableModelDirective implements OnInit {
 
   @HostListener('blur') onBlur() {
     let value = this.getValue();
-    if (!value) {
+    if (value) {
+      this.updatingModel = true;
+      this.contenteditableModel = value;
+      this.contenteditableModelChange.emit(value);
+    } else {
       this.setValue(this.defaultValue);
-    } else if (value !== this.originalValue) {
-      this.updateModel();
     }
   }
 
-  constructor(private element: ElementRef) { }
+  constructor(private element: ElementRef) { console.log(`new ContenteditableModelDirective()`); }
+
+  ngOnInit() {
+    if (!this.valueSet) {
+      this.defaultValue = this.defaultValue || this.element.nativeElement.innerText || 'Just start typing...';
+      this.setValue(this.defaultValue);
+    }
+  }
+
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    if (!this.updatingModel) {
+      for (let propName in changes) {
+        if (changes.hasOwnProperty(propName) && propName === 'contenteditableModel') {
+          let changedProp = changes[propName];
+          this.setValue(changedProp.currentValue);
+        }
+      }
+    } else {
+      this.updatingModel = false;
+    }
+  }
 
   private setValue(value: any) {
-    if (this.currentValue !== value) {
-      this.currentValue = value;
+    if (typeof value !== 'undefined' && this.getValue() !== value) {
       this.element.nativeElement.innerText = value;
+      this.valueSet = true;
     }
   }
 
   private getValue() {
     return this.element.nativeElement.innerText;
-  }
-
-  private updateModel() {
-    let value = this.getValue();
-    this.contenteditableModelChange.emit(value);
-  }
-
-  ngOnInit() {
-    this.defaultValue = this.defaultValue || this.element.nativeElement.innerText || 'Just start typing...';
-    this.setValue(this.originalValue || this.defaultValue);
-    this.isLoaded = true;
   }
 }

@@ -1,3 +1,7 @@
-<p>
-  customer-lookup works!
-</p>
+<template [ngIf]="customerFound">
+  Customer Found...
+</template>
+<template [ngIf]="!customerFound">
+  Customer Not Found...
+  {{customer|json}}
+</template>
