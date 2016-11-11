@@ -16,7 +16,7 @@ const interviewsRoutes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'interviews/:id',
+    path: 'interviews/edit/:id',
     component: EditorComponent,
     canActivate: [AuthGuardService],
     resolve: {

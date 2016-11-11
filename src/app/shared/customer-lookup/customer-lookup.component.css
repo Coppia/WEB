@@ -1,0 +1,8 @@
+.customer {
+    border-left : 1px solid #DDDDDD;
+}
+.customer-image {
+    max-width: 128px;
+    max-height: 128px;
+    margin: 0 auto;
+}

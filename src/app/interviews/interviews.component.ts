@@ -19,7 +19,7 @@ export class InterviewsComponent implements OnInit {
   ) { }
 
   goto(interview: Interview) {
-    this.router.navigate(['/interviews', interview.id]);
+    this.router.navigate(['/interviews/edit', interview.id]);
   }
 
   ngOnInit() {

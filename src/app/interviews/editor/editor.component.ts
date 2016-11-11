@@ -9,9 +9,9 @@ import { Customer, Interview, InterviewService, UserService } from '../../shared
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-
+  search: string;
   interview: Interview = new Interview();
-  customer: Customer = new Customer();
+  customer: Customer;
   isSubmitting: boolean = false;
   userId: any;
 
@@ -23,7 +23,7 @@ export class EditorComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // load prefetched article
+    // load prefetched interview
     this.route.data.subscribe(
       (data: {interview: Interview}) => {
         if (data.interview) {
@@ -49,6 +49,7 @@ export class EditorComponent implements OnInit {
     .subscribe(
       data => {
           this.customer = data;
+          this.search = data.email;
         },
         err => {
           console.log(err); // todo: handle error. 

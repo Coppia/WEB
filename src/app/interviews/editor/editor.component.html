@@ -7,8 +7,10 @@
 <div class="row">
   <div class="col-xs">
     <h1 class="interview-title" [(contenteditableModel)]="interview.title" [defaultValue]="'Interview Title'"></h1>
-    <div class="interview-customer-lookup" [(contenteditableModel)]="customer.email">Add customer's email address or the data source</div>
+    <h2 class="interview-customer-lookup" [(contenteditableModel)]="search">Add customer's email address or the data source</h2>
     <div class="interview-notes" [(contenteditableModel)]="interview.notes"></div>    
   </div>
-  <app-customer-lookup [(customer)]="customer"></app-customer-lookup>
+  <div class="col-xs-6 col-lg-2" *ngIf="customer || search">
+    <div app-customer-lookup [(customer)]="customer" [(search)]="search"></div>
+  </div>
 </div>

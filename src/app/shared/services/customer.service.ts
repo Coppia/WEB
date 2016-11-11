@@ -27,6 +27,17 @@ export class CustomerService {
              return result; });
   }
 
+  lookup(email: string): Observable<Customer> {
+    return this.apiService.get(`${this.apiPath}lookup/${email}`)
+             .map(data => {
+               if (data.success) {
+                return data;
+               } else {
+                 throw data;
+               }
+              });
+  }
+
   put(customer: Customer): Observable<any> {
     let update = {
       customer_id: customer.id,
