@@ -13,4 +13,5 @@ export class Customer implements Created {
     updated_datetime: Date;
     updated_image_link: string;
     success: boolean;
+    assigned: boolean;
 }

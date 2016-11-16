@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
 
 import { Customer } from '../models';
 import { CustomerService } from '../services';
@@ -14,7 +14,7 @@ export class CustomerLookupComponent implements OnInit, OnChanges {
   private initialized: boolean = false;
   @Input() customer: Customer;
   @Input() search: string;
-  @Output() customerLookupResult: any;
+  @Output() customerChange = new EventEmitter();
 
 
   constructor(private customerService: CustomerService) { }
@@ -86,6 +86,7 @@ export class CustomerLookupComponent implements OnInit, OnChanges {
             this.customer = data;
             this.searching = false;
             this.customerFound = this.customerIsValid();
+            this.customerChange.emit(data);
           },
           err => {
             console.log(err); // todo: handle error. 

@@ -40,10 +40,18 @@ export class InterviewService {
     return this.apiService.delete(`${this.apiPath}${id}`)
            .map(data => data);
   }
-  
+
   customer(id: number): Observable<Customer> {
      return this.apiService.get(`${this.apiPath}interview_customer/${id}`)
-           .map(data => data);
+           .map(data => {
+             data.assigned = true;
+             return data;
+            });
   }
 
+  assign(id: number, customer_id: number): Observable<any> {
+    let postData: any = { 'interview_id': id, 'customer_id': customer_id };
+    return this.apiService.post(`${this.apiPath}interview_customer/`, postData)
+          .map(data => data);
+  }
 }
