@@ -1,4 +1,5 @@
-export class Idea implements Created {
+import { ICreated } from './created.interface';
+export class Idea implements ICreated {
     id: number;
     title: string;
     goal: string;

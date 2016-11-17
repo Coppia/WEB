@@ -1,4 +1,5 @@
-export class Customer implements Created {
+import { ICreated } from './created.interface';
+export class Customer implements ICreated {
     id: number;
     first_name: string;
     last_name: string;

@@ -8,9 +8,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { JwtService } from './jwt.service';
+import { User } from '../models/user.model';
+import { ICreated } from '../models/created.interface';
 
 @Injectable()
 export class ApiService {
+  user: User;
+
   constructor(
     private http: Http,
     private jwtService: JwtService
@@ -32,6 +36,30 @@ export class ApiService {
      return Observable.throw(error.json());
   }
 
+  private setCreateUser(data: any): void {
+    if (this.user && this.user.id) {
+      data.create_user = this.user.id;
+    }
+  }
+
+  private setUpdateUser(data: any): void {
+    if (this.user && this.user.id) {
+      data.update_user = this.user.id;
+    }
+  }
+
+  extractDatas<t>(data: ICreated[]) {
+    data.forEach((d) => {
+      d.created_datetime = new Date(d.created_datetime);
+    });
+    return data;
+  }
+
+  extractData(data: ICreated) {
+    data.created_datetime = new Date(data.created_datetime);
+    return data;
+  }
+
   getWithHeaders(path: string, headers: any): Observable<any> {
     return this.http.get(`${environment.api_url}${path}`, { headers: new Headers(headers) })
     .catch(this.formatErrors)
@@ -45,6 +73,7 @@ export class ApiService {
   }
 
   put(path: string, body: Object = {}): Observable<any> {
+    this.setUpdateUser(body);
     return this.http.put(
       `${environment.api_url}${path}`,
       JSON.stringify(body),
@@ -55,6 +84,7 @@ export class ApiService {
   }
 
   post(path: string, body: Object = {}): Observable<any> {
+    this.setCreateUser(body);
     return this.http.post(
       `${environment.api_url}${path}`,
       JSON.stringify(body),
@@ -71,17 +101,5 @@ export class ApiService {
     )
     .catch(this.formatErrors)
     .map((res:Response) => res.json());
-  }
-
-  extractDatas<t>(data: Created[]) {
-    data.forEach((d) => {
-      d.created_datetime = new Date(d.created_datetime);
-    });
-    return data;
-  }
-
-  extractData(data: Created) {
-    data.created_datetime = new Date(data.created_datetime);
-    return data;
   }
 }

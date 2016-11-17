@@ -1,4 +1,5 @@
-export class Interview implements Created {
+import { ICreated } from './created.interface';
+export class Interview implements ICreated {
     id: number;
     title: string;
     notes: string;

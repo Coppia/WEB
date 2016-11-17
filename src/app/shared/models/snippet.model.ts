@@ -1,4 +1,5 @@
-export class Snippet implements Created {
+import { ICreated } from './created.interface';
+export class Snippet implements ICreated {
     id: number;
     text: string;
     interview_id: number;
