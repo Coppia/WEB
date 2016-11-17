@@ -50,6 +50,9 @@ export class UserService {
     this.currentUserSubject.next(user);
     // Set isAuthenticated to true
     this.isAuthenticatedSubject.next(true);
+
+    // Add user to apiService
+    this.apiService.user = user;
   }
 
   purgeAuth() {
