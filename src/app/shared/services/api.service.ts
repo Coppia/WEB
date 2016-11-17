@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { JwtService } from './jwt.service';
+import { ICreated } from '../models/created.interface';
 
 @Injectable()
 export class ApiService {
@@ -73,14 +74,14 @@ export class ApiService {
     .map((res:Response) => res.json());
   }
 
-  extractDatas<t>(data: Created[]) {
+  extractDatas<t>(data: ICreated[]) {
     data.forEach((d) => {
       d.created_datetime = new Date(d.created_datetime);
     });
     return data;
   }
 
-  extractData(data: Created) {
+  extractData(data: ICreated) {
     data.created_datetime = new Date(data.created_datetime);
     return data;
   }

@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { ICreated } from '../../shared/models/created.interface';
+
 
 @Component({
   selector: 'app-card-footer-created',
@@ -6,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-footer-created.component.css']
 })
 export class CardFooterCreatedComponent {
-  @Input() created: Created;
+  @Input() created: ICreated;
 
   constructor() { }
 

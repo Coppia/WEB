@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
+  server: 'http://localhost:4300',
   api_url : 'https://coppia-api.herokuapp.com/api/v1'
 };
