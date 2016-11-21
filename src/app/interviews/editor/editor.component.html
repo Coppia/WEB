@@ -1,4 +1,4 @@
-
+<app-snippet-menu [config]="snippetMenuConfig" (onMakeSnippet)="makeSnippet($event)"></app-snippet-menu>
 <div class="row flex-items-xs-right mb-1">
   <div class="col-xs-2">
     <button class="btn btn-secondary float-xs-right" role="button" (click)="save()">Save Interview</button>
@@ -8,7 +8,7 @@
   <div class="col-xs">
     <h1 class="interview-title" [(contenteditableModel)]="interview.title" [defaultValue]="'Interview Title'"></h1>
     <h2 class="interview-customer-lookup" [(contenteditableModel)]="search">Add customer's email address or the data source</h2>
-    <div class="interview-notes" [(contenteditableModel)]="interview.notes"></div>    
+    <div class="interview-notes" [(contenteditableModel)]="interview.notes" appSnippet (onSnippetDeselection)="snippetDeselected()" (onSnippetSelection)="snippetSelected($event)"></div>    
   </div>
   <div class="col-xs-6 col-lg-2" *ngIf="customer?.success || search">
     <div app-customer-lookup [(customer)]="customer" [(search)]="search"></div>

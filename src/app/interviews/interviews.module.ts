@@ -6,6 +6,9 @@ import { InterviewFullComponent } from './interview-full/interview-full.componen
 import { InterviewSlimComponent } from './interview-slim/interview-slim.component';
 import { EditorComponent } from './editor/editor.component';
 import { EditableInterviewResolver } from './editor/editable-interview-resolver.service';
+import { SnippetDirective } from './snippets/snippet.directive';
+import { SnippetMenuComponent } from './snippets/snippet-menu.component';
+import { SnippetModalComponent } from './snippets/snippet-modal.component';
 
 import { SharedModule, AuthGuardService } from '../shared';
 
@@ -41,8 +44,12 @@ const interviewsRouting: ModuleWithProviders = RouterModule.forChild(interviewsR
     InterviewsComponent,
     InterviewFullComponent,
     InterviewSlimComponent,
-    EditorComponent
+    EditorComponent,
+    SnippetDirective,
+    SnippetMenuComponent,
+    SnippetModalComponent
   ],
+  entryComponents: [ SnippetModalComponent ],
   providers: [
     AuthGuardService,
     EditableInterviewResolver

@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
 import { Customer, CustomerService, Interview, InterviewService, UserService } from '../../shared';
+import { SnippetMenuConfig } from '../snippets/snippet-menu-config.model';
+
 // todo: implement CanDeactivate https://angular.io/docs/ts/latest/guide/router.html#!#can-deactivate-guard
 @Component({
   selector: 'app-interview-editor',
@@ -15,6 +17,7 @@ export class EditorComponent implements OnInit {
   customer: Customer = new Customer();
   isSubmitting: boolean = false;
   userId: any;
+  snippetMenuConfig: SnippetMenuConfig = new SnippetMenuConfig();
 
   constructor(
     private customerService: CustomerService,
@@ -106,6 +109,21 @@ export class EditorComponent implements OnInit {
         console.log(err); // todo: handle error.
       }
     )
+  }
+
+  snippetSelected(data) {
+    this.snippetMenuConfig.top = data.position.rect.top;
+    this.snippetMenuConfig.left = data.position.rect.left;
+    this.snippetMenuConfig.display = true;
+  }
+
+  snippetDeselected() {
+    this.snippetMenuConfig.display = false;
+  }
+
+  makeSnippet(data: any) {
+    alert('make snippet');
+    this.snippetMenuConfig.display = false;
   }
 
 }

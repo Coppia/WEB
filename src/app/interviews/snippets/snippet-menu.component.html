@@ -1,0 +1,9 @@
+<div class="tooltip tooltip-top" role="tooltip"
+  [style.top]="getTop()"
+  [style.left]="getLeft()"
+  [class.in]="config.display">
+  <div class="tooltip-arrow"></div>
+  <div class="tooltip-inner">
+    <button type="button" class="btn btn-link" (click)="makeSnippet()"><i data-icon="&#xe00d;"></i></button>
+  </div>
+</div>
