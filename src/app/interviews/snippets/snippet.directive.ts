@@ -25,16 +25,18 @@ export class SnippetDirective implements OnInit {
   ngOnInit() { console.log('Snippet available.'); }
 
   getSelection() {
+    let doc = (<any>document);
     let text: string;
       if (window.getSelection) {
           text = window.getSelection().toString();
-      } else if (document.selection && document.selection.type !== 'Control') {
-          text = document.selection.createRange().htmlText;
+      } else if (doc.selection && doc.selection.type !== 'Control') {
+          text = doc.selection.createRange().htmlText;
       }
       return text;
   }
 
   getSelectedPosition() {
+    let doc = (<any>document);
     let element = this.element.nativeElement;
     let start = 0, end = 0;
     let sel, range, priorRange, rect;
@@ -46,11 +48,11 @@ export class SnippetDirective implements OnInit {
         priorRange.setEnd(range.startContainer, range.startOffset);
         start = priorRange.toString().length;
         end = start + range.toString().length;
-    } else if (typeof document.selection !== 'undefined' &&
-            (sel = document.selection).type !== 'Control') {
+    } else if (typeof doc.selection !== 'undefined' &&
+            (sel = doc.selection).type !== 'Control') {
         range = sel.createRange();
         rect = range.getClientRects()[0];
-        priorRange = document.body.createTextRange();
+        priorRange = doc.body.createTextRange();
         priorRange.moveToElementText(element);
         priorRange.setEndPoint('EndToStart', range);
         start = priorRange.text.length;
@@ -65,7 +67,7 @@ export class SnippetDirective implements OnInit {
 
   getSelectionCoords() {
     let win = window;
-    let doc = win.document;
+    let doc = (<any>win.document);
     let sel = doc.selection, range, rects, rect;
     let x = 0, y = 0;
     if (sel) {
