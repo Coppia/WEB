@@ -1,6 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { InterviewsComponent } from './interviews.component';
 import { InterviewFullComponent } from './interview-full/interview-full.component';
 import { InterviewSlimComponent } from './interview-slim/interview-slim.component';
@@ -38,7 +40,8 @@ const interviewsRouting: ModuleWithProviders = RouterModule.forChild(interviewsR
 @NgModule({
   imports: [
     interviewsRouting,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   declarations: [
     InterviewsComponent,

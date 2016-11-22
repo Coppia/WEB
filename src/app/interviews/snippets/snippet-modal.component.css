@@ -1,0 +1,30 @@
+.list-group {
+
+}
+
+.list-group .list-group-item,
+.list-group .list-group-item:active 
+.list-group .list-group-item:focus {
+    border-color: transparent;
+}
+
+.select-marker {
+    display: inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    -moz-border-radius:  50%;
+    border-radius:  50%;
+    border:0.5px solid #dbdcdf; 
+}
+
+.list-group-item.active .select-marker,
+.list-group-item:hover .select-marker,
+.list-group-item:active .select-marker,
+.list-group-item:focus .select-marker,
+.select-marker:hover {
+    background-color: #f8a533;
+    border-color: #ff9500;
+}

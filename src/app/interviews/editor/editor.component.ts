@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Customer, CustomerService, Interview, InterviewService, UserService } from '../../shared';
+import { Customer, CustomerService, Interview, InterviewService, Snippet, UserService } from '../../shared';
 import { SnippetMenuConfig } from '../snippets/snippet-menu-config.model';
+import { SnippetModalComponent } from '../snippets/snippet-modal.component';
 
 // todo: implement CanDeactivate https://angular.io/docs/ts/latest/guide/router.html#!#can-deactivate-guard
 @Component({
@@ -18,8 +20,10 @@ export class EditorComponent implements OnInit {
   isSubmitting: boolean = false;
   userId: any;
   snippetMenuConfig: SnippetMenuConfig = new SnippetMenuConfig();
+  snippet: Snippet;
 
   constructor(
+    private modalService: NgbModal,
     private customerService: CustomerService,
     private interviewService: InterviewService,
     private userService: UserService,
@@ -111,10 +115,14 @@ export class EditorComponent implements OnInit {
     )
   }
 
-  snippetSelected(data) {
+  snippetSelected(data: any) {
     this.snippetMenuConfig.top = data.position.rect.top;
     this.snippetMenuConfig.left = data.position.rect.left;
     this.snippetMenuConfig.display = true;
+
+    this.snippet = new Snippet();
+    this.snippet.interview_id = this.interview.id;
+    this.snippet.text = data.text;
   }
 
   snippetDeselected() {
@@ -122,8 +130,9 @@ export class EditorComponent implements OnInit {
   }
 
   makeSnippet(data: any) {
-    alert('make snippet');
     this.snippetMenuConfig.display = false;
+    const modalRef = this.modalService.open(SnippetModalComponent);
+    modalRef.componentInstance.snippet = this.snippet;
   }
 
 }

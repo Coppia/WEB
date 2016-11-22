@@ -48,4 +48,8 @@ export class IdeaService {
              let result = <Snippet[]>this.apiService.extractDatas(response);
              return result; });
   }
+
+  assignSnippet(idea_id: number, snippet_id: number): Observable<any> {
+    return this.apiService.post(`${this.apiPath}idea_snippet/`, {idea_id, snippet_id});
+  }
 }

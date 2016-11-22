@@ -13,7 +13,7 @@ import { IdeaPreviewComponent } from './idea-helpers';
 import { InterviewPreviewComponent } from './interview-helpers';
 import { SnippetPreviewComponent, SnippetPreviewListComponent } from './snippet-helpers/';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+//import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -21,8 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpModule,
     MomentModule,
-    RouterModule,
-    NgbModule
+    RouterModule
   ],
   declarations: [
     CardFooterCreatedComponent,
@@ -40,7 +39,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HttpModule,
     MomentModule,
     RouterModule,
-    NgbModule,
     CardFooterCreatedComponent,
     ContenteditableModelDirective,
     CustomerLookupComponent,
