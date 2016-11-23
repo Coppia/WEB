@@ -2,22 +2,22 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
-import { InterviewService } from '../../shared';
+import { Idea, IdeaService } from '../../shared';
 
 @Injectable()
-export class EditableInterviewResolver implements Resolve<any> {
-    constructor(private interviewService: InterviewService, private router: Router) {}
+export class EditableIdeaResolver implements Resolve<any> {
+    constructor(private ideaService: IdeaService, private router: Router) {}
 
     resolve(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<any> {
-        return this.interviewService.find(route.params['id'])
+        return this.ideaService.find(route.params['id'])
             .map(
                 data => {
                     return data;
                 }
             )
-            .catch((err) => this.router.navigateByUrl('/interviews'));
+            .catch((err) => this.router.navigateByUrl('/ideas'));
     }
 }

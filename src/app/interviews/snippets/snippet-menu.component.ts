@@ -13,25 +13,16 @@ export class SnippetMenuComponent implements AfterViewInit {
   @Input()
   config: SnippetMenuConfig;
 
-  @Input()
-  top: number;
-
-  @Input()
-  left: number;
-
-  @Input()
-  display: boolean;
-
   @Output()
   onMakeSnippet = new EventEmitter<any>();
 
   constructor(private element: ElementRef) {}
 
-  getTop():string {
+  getTop(): string {
     return `${this.config.top - this.topOffset}px`;
   }
 
-  getLeft():string {
+  getLeft(): string {
     return `${this.config.left}px`;
   }
 

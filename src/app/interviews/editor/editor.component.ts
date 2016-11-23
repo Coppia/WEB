@@ -112,7 +112,7 @@ export class EditorComponent implements OnInit {
       err => {
         console.log(err); // todo: handle error.
       }
-    )
+    );
   }
 
   snippetSelected(data: any) {

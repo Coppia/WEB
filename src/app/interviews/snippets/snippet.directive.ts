@@ -22,7 +22,7 @@ export class SnippetDirective implements OnInit {
 
   constructor(public element: ElementRef) {}
 
-  ngOnInit() { console.log('Snippet available.'); }
+  ngOnInit() { }
 
   getSelection() {
     let doc = (<any>document);

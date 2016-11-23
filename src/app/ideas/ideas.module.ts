@@ -3,6 +3,8 @@ import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { IdeasComponent } from './ideas.component';
 import { SharedModule, AuthGuardService } from '../shared';
+import { EditorComponent } from './editor/editor.component';
+
 
 const ideasRoutes: Routes = [
   {
@@ -20,7 +22,8 @@ const ideasRouting: ModuleWithProviders = RouterModule.forChild(ideasRoutes);
     SharedModule
   ],
   declarations: [
-    IdeasComponent
+    IdeasComponent,
+    EditorComponent
   ],
   providers: [
     AuthGuardService
