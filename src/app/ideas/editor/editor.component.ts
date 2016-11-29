@@ -45,6 +45,7 @@ export class EditorComponent implements OnInit {
           this.idea.updated_by = user.username;
         } else {
           this.idea.created_by = user.username;
+          this.idea.status = "UNTESTED";
         }
       }
     );

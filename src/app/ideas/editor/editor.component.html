@@ -14,7 +14,14 @@
   </div>
   <div class="col-xs-6 col-lg-6">
     <label>STATUS</label><br>
-    <div class="idea-status" [(contenteditableModel)]="idea.status" [defaultValue]="'Idea Status'"></div>    
+    <!--<div class="idea-status" [(contenteditableModel)]="idea.status" [defaultValue]="'Idea Status'"></div>-->
+    <div class="idea-status">
+      <select [(ngModel)]="idea.status">
+        <option value="UNTESTED">UNTESTED</option>
+        <option value="TESTING">TESTING</option>
+        <option value="TESTED">TESTED</option>
+      </select>
+    </div>    
   </div>
   <div class="col-xs-12 col-lg-12">
     <div class="snippet-preview-list" style="margin-top: 50px;">
