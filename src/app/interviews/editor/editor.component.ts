@@ -76,8 +76,8 @@ export class EditorComponent implements OnInit {
     }
     serviceCall.subscribe(
         data => {
-          console.log('interview saved.');
-          this.interview.id = data.interview_id;
+          console.log('interview saved.' + data);
+          this.interview.id = this.interview.id || data.interview_id;
           this.saveMetaData();
         },
         err => {
@@ -108,6 +108,7 @@ export class EditorComponent implements OnInit {
     this.interviewService.assign(interview_id, customer_id).subscribe(
       data => {
         console.log('customer assigned.');
+        this.customer.assigned = true;
       },
       err => {
         console.log(err); // todo: handle error.
