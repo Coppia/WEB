@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
-import { Idea, IdeaService } from '../../shared';
+import { IdeaService } from '../../shared';
 
 @Injectable()
 export class EditableIdeaResolver implements Resolve<any> {

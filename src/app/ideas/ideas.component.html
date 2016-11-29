@@ -4,5 +4,5 @@
     </div>
   </div>
 <div class="card-columns">
-    <app-idea-preview *ngFor="let idea of ideas" [idea]="idea" class="card"></app-idea-preview>
+    <app-idea-preview *ngFor="let idea of ideas" [idea]="idea" class="card" (click)="goto(idea)"></app-idea-preview>
 </div>

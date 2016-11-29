@@ -11,7 +11,7 @@ import { CustomerLookupComponent } from './customer-lookup';
 import { ShowAuthedDirective, ContenteditableModelDirective } from './directives';
 import { IdeaPreviewComponent } from './idea-helpers';
 import { InterviewPreviewComponent } from './interview-helpers';
-import { SnippetPreviewComponent, SnippetPreviewListComponent } from './snippet-helpers/';
+import { SnippetPreviewComponent, SnippetPreviewListComponent, SnippetIdeaListComponent } from './snippet-helpers/';
 
 //import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -31,7 +31,8 @@ import { SnippetPreviewComponent, SnippetPreviewListComponent } from './snippet-
     InterviewPreviewComponent,
     ShowAuthedDirective,
     SnippetPreviewComponent,
-    SnippetPreviewListComponent
+    SnippetPreviewListComponent,
+    SnippetIdeaListComponent
   ],
   exports: [
     CommonModule,
@@ -46,7 +47,8 @@ import { SnippetPreviewComponent, SnippetPreviewListComponent } from './snippet-
     InterviewPreviewComponent,
     ShowAuthedDirective,
     SnippetPreviewComponent,
-    SnippetPreviewListComponent
+    SnippetPreviewListComponent,
+    SnippetIdeaListComponent
   ]
 })
 export class SharedModule { }

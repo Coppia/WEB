@@ -1,0 +1,41 @@
+.snippet-idea-list {
+    margin-bottom: 1rem;
+    border: solid 1px #dbdcdf;
+    padding: 5px;
+}
+.snippet-preview-list app-snippet-idea-list:last-of-type .snippet-idea-list {
+    margin-bottom:0;
+}
+
+.snippet-idea-list  .customer-image {
+    width: 32px;
+}
+.snippet-idea-list  .snippet-text {
+    display: table;
+    table-layout: fixed;
+    width: 95%;
+    /*white-space: nowrap;*/
+}
+/*.snippet-idea-list  .snippet-text > * {
+    display: table-cell;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+
+.snippet-idea-list  .snippet-customer {
+    font-weight: bold;
+}
+
+.snippet-idea-list  .snippet-date {
+    text-transform: uppercase;
+}
+
+.snippet-idea-list  .snippet-customer,
+.snippet-idea-list  .snippet-text,
+.snippet-idea-list  .snippet-date {
+    margin: 0 0 0;
+}
+
+.more {
+    text-align: right;
+}

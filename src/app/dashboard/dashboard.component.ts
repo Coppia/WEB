@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Idea, IdeaService, Interview, InterviewService } from '../shared';
 
@@ -12,9 +13,18 @@ export class DashboardComponent implements OnInit {
   interviews: Interview[];
 
   constructor(
+    private router: Router,
     private ideaService: IdeaService,
     private interviewService: InterviewService
   ) { }
+
+  gotoidea(idea: Idea) {
+    this.router.navigate(['/ideas/edit', idea.id]);
+  }
+
+  gotointerview(interview: Interview) {
+    this.router.navigate(['/interviews/edit', interview.id]);
+  }
 
   ngOnInit() {
     this.ideaService.get()

@@ -3,12 +3,12 @@
     <div class="col-md-8">
       <p class="lead">Ideas Supported by Data</p>
       <div class="card-columns">
-        <app-idea-preview *ngFor="let idea of ideas | slice:0:4" [idea]="idea" class="card"></app-idea-preview>
+        <app-idea-preview *ngFor="let idea of ideas | slice:0:4" [idea]="idea" class="card" (click)="gotoidea(idea)"></app-idea-preview>
       </div>
     </div>
     <div class="col-md-4 v-scroll">
       <p class="lead">Recent Interviews</p>      
-      <app-interview-preview *ngFor="let interview of interviews" [interview]="interview"></app-interview-preview>
+      <app-interview-preview *ngFor="let interview of interviews" [interview]="interview" (click)="gotointerview(interview)"></app-interview-preview>
     </div>
   </div>
 </div>
