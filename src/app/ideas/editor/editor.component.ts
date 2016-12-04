@@ -20,7 +20,7 @@ export class EditorComponent implements OnInit {
   snippets: Snippet[];
   isSubmitting: boolean = false;
   userId: any;
- 
+
   constructor(
     private modalService: NgbModal,
     private ideaService: IdeaService,

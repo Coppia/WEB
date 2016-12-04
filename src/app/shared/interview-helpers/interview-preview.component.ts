@@ -16,7 +16,7 @@ export class InterviewPreviewComponent implements OnInit {
   customer: Customer;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private interviewService: InterviewService,
     private notificationsService: NotificationsService
   ) {  }
