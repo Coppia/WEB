@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { NotificationsService } from 'angular2-notifications';
 import { Idea, IdeaService, Interview, InterviewService } from '../shared';
 
 @Component({
@@ -15,7 +16,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private router: Router,
     private ideaService: IdeaService,
-    private interviewService: InterviewService
+    private interviewService: InterviewService,
+    private notificationsService: NotificationsService
   ) { }
 
   gotoidea(idea: Idea) {
@@ -31,10 +33,9 @@ export class DashboardComponent implements OnInit {
     .subscribe(
         data => {
           this.ideas = data;
-          console.log(this.ideas);
         },
         err => {
-          console.log(err);
+          this.notificationsService.error('Oops', `There was problem retrieving your ideas. ${err.message}`);
         }
       );
     this.interviewService.get()
@@ -44,7 +45,7 @@ export class DashboardComponent implements OnInit {
           console.log(this.interviews);
         },
         err => {
-          console.log(err);
+          this.notificationsService.error('Oops', `There was problem retrieving your interviews. ${err.message}`);
         }
       );
   }

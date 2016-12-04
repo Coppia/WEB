@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { NotificationsService } from 'angular2-notifications';
 import { Idea, IdeaService, UserService } from '../../shared';
 
 import { Snippet } from '../../shared/models';
@@ -25,7 +26,8 @@ export class EditorComponent implements OnInit {
     private ideaService: IdeaService,
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,6 @@ export class EditorComponent implements OnInit {
       (data: {idea: Idea}) => {
         if (data.idea) {
           this.idea = data.idea;
-          //this.getMetaData();
         }
       }
     );
@@ -45,7 +46,7 @@ export class EditorComponent implements OnInit {
           this.idea.updated_by = user.username;
         } else {
           this.idea.created_by = user.username;
-          this.idea.status = "UNTESTED";
+          this.idea.status = 'UNTESTED';
         }
       }
     );
@@ -53,19 +54,6 @@ export class EditorComponent implements OnInit {
     this.ideaService.snippets(this.idea.id)
       .subscribe(data => { this.snippets = data; });
   }
-
-  // getMetaData() {
-  //   this.ideaService.customer(this.interview.id)
-  //   .subscribe(
-  //     data => {
-  //         this.customer = data;
-  //         this.search = data.email;
-  //       },
-  //       err => {
-  //         console.log(err); // todo: handle error. 
-  //       }
-  //   );
-  // }
 
   save() {
     // check if interview is new or exists.
@@ -79,30 +67,10 @@ export class EditorComponent implements OnInit {
         data => {
           console.log('idea saved.');
           this.idea.id = data.idea_id;
-          //this.saveMetaData();
         },
         err => {
-          console.log(err); // todo: handle error. 
+          this.notificationsService.error('Oops', `There was problem saving your idea. ${err.message}`);
         }
       );
   }
-
-  // saveMetaData() {
-  //   // check if customer is new.
-  //   if (this.customer && this.customer.id === 0) {
-  //     this.customerService.post(this.customer).subscribe(
-  //       data => {
-  //         console.log('customer saved.');
-  //         this.customer.id = data.customer_id;
-  //         this.assignCustomer(this.interview.id, this.customer.id);
-  //       },
-  //       err => {
-  //         console.log(err); // todo: handle error. 
-  //       }
-  //     );
-  //   } else if (this.customer && !this.customer.assigned) {
-  //     this.assignCustomer(this.interview.id, this.customer.id);
-  //   }
-  // }
-
 }

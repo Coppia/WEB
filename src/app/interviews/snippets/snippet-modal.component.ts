@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
+import { NotificationsService } from 'angular2-notifications';
 import { Idea, IdeaService, Snippet, SnippetService, UserService } from '../../shared';
 
 @Component({
@@ -20,7 +21,8 @@ export class SnippetModalComponent implements OnInit  {
       public activeModal: NgbActiveModal,
       private ideaService: IdeaService,
       private snippetService: SnippetService,
-      private userService: UserService
+      private userService: UserService,
+    private notificationsService: NotificationsService
     ) {}
 
   ngOnInit() {
@@ -30,7 +32,8 @@ export class SnippetModalComponent implements OnInit  {
         this.ideas = data;
       },
       err => {
-        console.log(err); // todo: handle error. 
+        this.notificationsService
+          .error('Oops', `There was problem retrieving your ideas. ${err.message}`);
     });
   }
 
@@ -47,7 +50,8 @@ export class SnippetModalComponent implements OnInit  {
         this.assignSnippet(idea.id);
     },
     err => {
-      console.log(err); // todo: handle error. 
+      this.notificationsService
+          .error('Oops', `There was problem saving your snippet. ${err.message}`);
       this.saving = false;
     });
   }
@@ -60,7 +64,8 @@ export class SnippetModalComponent implements OnInit  {
        this.activeModal.close('Snippet saved.');
     },
     err => {
-      console.log(err); // todo: handle error.
+      this.notificationsService
+          .error('Oops', `There was problem saving your snippet. ${err.message}`);
       this.saving = false;
     });
   }

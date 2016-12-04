@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { NotificationsService } from 'angular2-notifications';
 import { Customer, CustomerService, Interview, InterviewService, Snippet, UserService } from '../../shared';
 import { SnippetMenuConfig } from '../snippets/snippet-menu-config.model';
 import { SnippetModalComponent } from '../snippets/snippet-modal.component';
@@ -28,7 +29,8 @@ export class EditorComponent implements OnInit {
     private interviewService: InterviewService,
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private notificationsService: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -61,7 +63,8 @@ export class EditorComponent implements OnInit {
           this.search = data.email;
         },
         err => {
-          console.log(err); // todo: handle error. 
+          this.notificationsService
+          .error('Oops', `There was problem retrieving your "${this.interview.title}" interview. ${err.message}`);
         }
     );
   }
@@ -81,7 +84,8 @@ export class EditorComponent implements OnInit {
           this.saveMetaData();
         },
         err => {
-          console.log(err); // todo: handle error. 
+          this.notificationsService
+          .error('Oops', `There was problem saving your "${this.interview.title}" interview. ${err.message}`);
         }
       );
   }
@@ -96,7 +100,8 @@ export class EditorComponent implements OnInit {
           this.assignCustomer(this.interview.id, this.customer.id);
         },
         err => {
-          console.log(err); // todo: handle error. 
+          this.notificationsService
+          .error('Oops', `There was problem saving your "${this.interview.title}" interview's customer. ${err.message}`);
         }
       );
     } else if (this.customer && !this.customer.assigned) {
@@ -111,7 +116,8 @@ export class EditorComponent implements OnInit {
         this.customer.assigned = true;
       },
       err => {
-        console.log(err); // todo: handle error.
+        this.notificationsService
+          .error('Oops', `There was problem saving your "${this.interview.title}" interview's customer. ${err.message}`);
       }
     );
   }

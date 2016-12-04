@@ -4,7 +4,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule, Routes }   from '@angular/router';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import {SimpleNotificationsModule, NotificationsService} from 'angular2-notifications';
 
 import { AppComponent } from './app.component';
 /* Import App Modules */
@@ -42,6 +42,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot(rootRoutes, { useH
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
+    SimpleNotificationsModule,
     DashboardModule,
     IdeasModule,
     InterviewsModule,
@@ -50,6 +51,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot(rootRoutes, { useH
     SharedModule
   ],
   providers: [
+    NotificationsService,
     ApiService,
     AuthGuardService,
     AuthResolverService,

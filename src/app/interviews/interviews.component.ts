@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { NotificationsService } from 'angular2-notifications';
 import { Interview, InterviewService } from '../shared';
 
 @Component({
@@ -15,7 +16,8 @@ export class InterviewsComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private interviewService: InterviewService
+    private interviewService: InterviewService,
+    private notificationsService: NotificationsService
   ) { }
 
   goto(interview: Interview) {
@@ -31,7 +33,8 @@ export class InterviewsComponent implements OnInit {
           console.log(this.interviews);
         },
         err => {
-          console.log(err);
+          this.notificationsService
+          .error('Oops', `There was problem retrieving your interviews. ${err.message}`);
         }
       );
   }

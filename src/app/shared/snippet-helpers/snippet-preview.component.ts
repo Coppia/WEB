@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
+import { NotificationsService } from 'angular2-notifications';
 import { InterviewService } from '../services';
 
 import { Snippet, Customer } from '../models';
@@ -16,7 +17,10 @@ export class SnippetPreviewComponent implements OnInit {
   loading: boolean = true;
   customer: Customer;
 
-  constructor(private interviewService: InterviewService) {  }
+  constructor(
+    private interviewService: InterviewService,
+    private notificationsService: NotificationsService
+  ) {  }
 
   ngOnInit() {
     this.getMetaData();
@@ -30,7 +34,8 @@ export class SnippetPreviewComponent implements OnInit {
           console.log(this.customer);
         },
         err => {
-          console.log(err);
+          this.notificationsService
+          .error('Oops', `There was problem retrieving the customer for this snippet. ${err.message}`);
         }
     );
   }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { NotificationsService } from 'angular2-notifications';
 import { InterviewService, Interview, Customer } from '../../shared';
 
 @Component({
@@ -13,7 +14,8 @@ export class InterviewSlimComponent implements OnInit {
   customer: Customer;
 
   constructor(
-    private interviewService: InterviewService
+    private interviewService: InterviewService,
+    private notificationsService: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -27,7 +29,8 @@ export class InterviewSlimComponent implements OnInit {
           this.customer = data;
         },
         err => {
-          console.log(err);
+          this.notificationsService
+          .error('Oops', `There was problem retrieving your "${this.interview.title}" interview. ${err.message}`);
         }
     );
   }

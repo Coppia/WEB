@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
 
+import { NotificationsService } from 'angular2-notifications';
 import { Customer } from '../models';
 import { CustomerService } from '../services';
 
@@ -17,7 +18,10 @@ export class CustomerLookupComponent implements OnInit, OnChanges {
   @Output() customerChange = new EventEmitter();
 
 
-  constructor(private customerService: CustomerService) { }
+  constructor(
+    private customerService: CustomerService,
+    private notificationsService: NotificationsService
+  ) { }
 
   ngOnInit() {
     this.customerFound = this.customerIsValid();
@@ -89,7 +93,8 @@ export class CustomerLookupComponent implements OnInit, OnChanges {
             this.customerChange.emit(data);
           },
           err => {
-            console.log(err); // todo: handle error. 
+            this.notificationsService
+              .error('Oops', `There was problem finding a customer for ${this.search}. ${err.message}`);
             this.customerFound = false;
             this.searching = false;
           }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { NotificationsService } from 'angular2-notifications';
 import { Idea, IdeaService } from '../shared';
 
 @Component({
@@ -15,7 +16,8 @@ export class IdeasComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private ideaService: IdeaService
+    private ideaService: IdeaService,
+    private notificationsService: NotificationsService
   ) { }
 
   goto(idea: Idea) {
@@ -31,7 +33,7 @@ export class IdeasComponent implements OnInit {
           console.log(this.ideas);
         },
         err => {
-          console.log(err);
+          this.notificationsService.error('Oops', `There was problem retrieving your ideas. ${err.message}`);
         }
       );
   }

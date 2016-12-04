@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { NotificationsService } from 'angular2-notifications';
 import { UserService } from '../shared';
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private notificationsService: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
         err => {
           this.errors = err;
           this.isSubmitting = false;
+          this.notificationsService.error('Sign in failed', `There was problem signing in. ${err.message}`);
         }
       );
   }
