@@ -21,4 +21,18 @@
 }
 .notes {
     font-size : 0.9rem;
+    height: 100px; 
+    overflow: hidden;
 }
+
+/*.snippet-preview  .snippet-text {
+    display: table;
+    table-layout: fixed;
+    width: 95%;
+    white-space: nowrap;
+}
+.snippet-preview  .snippet-text > * {
+    display: table-cell;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/

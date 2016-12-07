@@ -6,6 +6,11 @@
     border-right: 1px solid #eee;
     text-align: center;
 }
+
+.side-bar {
+    min-width: 130px !important;
+}
+
 :host .brand img {
     width: 100%;
 }
