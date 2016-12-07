@@ -58,15 +58,25 @@ export class EditorComponent implements OnInit {
   save() {
     // check if interview is new or exists.
     let serviceCall: Observable<any>;
+    let insert: boolean;
     if (this.idea && this.idea.id) {
       serviceCall = this.ideaService.put(this.idea);
+      insert = false; 
     } else {
       serviceCall = this.ideaService.post(this.idea);
+      insert = true;
     }
     serviceCall.subscribe(
         data => {
           console.log('idea saved.');
           this.idea.id = data.idea_id;
+          if (insert) {
+            this.notificationsService.success('Saved', 'Idea saved successfully!');
+          }
+          else {
+            this.notificationsService.success('Updated', 'Idea updated successfully!');
+          }
+          
         },
         err => {
           this.notificationsService.error('Oops', `There was problem saving your idea. ${err.message}`);

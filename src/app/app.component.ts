@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
   isAuthenticated: boolean = false;
   notificationOptions = {
-    timeOut: 5000,
+    timeOut: 0,
     lastOnBottom: true,
     clickToClose: true,
     maxLength: 0,
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     preventLastDuplicates: 'visible',
     rtl: false,
     animate: 'scale',
-    position: ['right', 'top']
+    position: ['top', 'right']
   };
 
   constructor (
