@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-xs">
+  <div class="col-xs interview-container">
     <h1 class="interview-title" [(contenteditableModel)]="interview.title" [defaultValue]="'Interview Title'"></h1>
     <h2 class="interview-customer-lookup" [(contenteditableModel)]="search">Add customer's email address or the data source</h2>
     <div class="interview-notes" [(contenteditableModel)]="interview.notes" appSnippet (onSnippetDeselection)="snippetDeselected()" (onSnippetSelection)="snippetSelected($event)"></div>    

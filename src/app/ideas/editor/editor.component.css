@@ -1,0 +1,18 @@
+label {
+    font-size: .75rem;
+    color: #94979e;
+}
+
+select {
+    background-color: #fff;
+    border: 0;
+    color: #4c525d;
+}
+
+h1 {
+    color: #94979e;
+}
+
+.idea-goal {
+    color: #4c525d;
+}
