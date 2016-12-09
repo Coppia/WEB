@@ -15,4 +15,5 @@ export class Customer implements ICreated {
     updated_image_link: string;
     success: boolean;
     assigned: boolean;
+    found: boolean;
 }

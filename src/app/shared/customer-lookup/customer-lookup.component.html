@@ -1,7 +1,7 @@
 <template [ngIf]="searching">
   searching...
 </template>  
-<div class="customer text-xs-center" *ngIf="customerFound">
+<div class="customer text-xs-center" *ngIf="customer?.found">
   <img class="media-object customer-image rounded-circle" [src]="customer?.image_link || 'http://placebeard.it/64/notag'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
   <h3 class="customer-name">{{customer?.first_name}} {{customer?.last_name}}</h3>
   <h4 class="customer-title">{{customer?.title}}</h4>
@@ -12,3 +12,6 @@
 <template [ngIf]="search && !searching && !customerFound">
   Customer Not Found...
 </template>
+<div class="customer text-xs-center" [ngIf]="!customer?.found && customer?.assigned">
+  <h3 class="customer-name">{{customer?.email}}</h3>
+</div>

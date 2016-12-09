@@ -75,7 +75,7 @@ export class EditorComponent implements OnInit {
     let insert: boolean;
     if (this.interview && this.interview.id) {
       serviceCall = this.interviewService.put(this.interview);
-      insert = false; 
+      insert = false;
     } else {
       serviceCall = this.interviewService.post(this.interview);
        insert = true;
@@ -86,8 +86,7 @@ export class EditorComponent implements OnInit {
           this.interview.id = this.interview.id || data.interview_id;
           if (insert) {
             this.notificationsService.success('Saved', 'Interview saved successfully!');
-          }
-          else {
+          } else {
             this.notificationsService.success('Updated', 'Interview updated successfully!');
           }
 
@@ -102,7 +101,7 @@ export class EditorComponent implements OnInit {
 
   saveMetaData() {
     // check if customer is new.
-    if (this.customer && this.customer.id === 0) {
+    if (this.customer && (!this.customer.hasOwnProperty('id') || this.customer.id === 0)) {
       this.customerService.post(this.customer).subscribe(
         data => {
           console.log('customer saved.');
