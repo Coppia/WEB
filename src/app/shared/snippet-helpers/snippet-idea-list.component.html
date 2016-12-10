@@ -1,14 +1,3 @@
-<div class="media snippet-idea-list">
-  <div class="media-left media-middle">
-    <img class="media-object customer-image rounded-circle" [src]="customer?.image_link || 'http://placebeard.it/64/notag'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
-  </div>
-  <div class="media-body">
-    <p class="snippet-customer">{{customer?.first_name}} {{customer?.last_name}} <span *ngIf="customer?.company_name.length > 0">from {{customer?.company_name}}</span></p>  
-    <p class="snippet-text">
-      <span>{{snippet.text}}</span>
-    </p>
-    <!--<p class="snippet-date">{{snippet.created_datetime | amDateFormat:'MMM D'}}</p>-->
-    <p class="more">remove</p>
-  </div>
-  
+<div  class="snippet-preview-list">
+  <app-snippet-preview [snippet]="snippet" [index]="i" *ngFor="let snippet of snippets;let i = index;" [editable]="true" (onRemoved)="snippetRemoved($event)" class="editable"></app-snippet-preview>
 </div>

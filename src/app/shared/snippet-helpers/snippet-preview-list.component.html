@@ -1,6 +1,6 @@
 <div  class="snippet-preview-list">
-  <app-snippet-preview [snippet]="snippet" *ngFor="let snippet of snippets | slice:0:3"></app-snippet-preview>
+  <app-snippet-preview [snippet]="snippet" *ngFor="let snippet of snippets | slice:0:showLimit()"></app-snippet-preview>
 </div>
-<div *ngIf="snippets?.length > 3" class="more">
+<div *ngIf="snippets?.length > showLimit()" class="more">
   more...
 </div>

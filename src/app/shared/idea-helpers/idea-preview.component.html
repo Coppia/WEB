@@ -1,6 +1,6 @@
 <div class="card-block preview idea-preview" (click)="goto()">
   <h3 class="card-title">{{idea.title}}</h3>
-  <app-snippet-preview-list [ideaId]="idea.id"></app-snippet-preview-list>  
+  <app-snippet-preview-list [ideaId]="idea.id" limit="3"></app-snippet-preview-list>  
 </div>
 <div class="card-footer">
   <app-card-footer-created [created]="idea"></app-card-footer-created>

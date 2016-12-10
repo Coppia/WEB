@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { NotificationsService } from 'angular2-notifications';
-import { InterviewService } from '../services';
+import { IdeaService, SnippetService } from '../services';
 
-import { Snippet, Customer } from '../models';
+import { Snippet } from '../models';
 
 @Component({
   selector: 'app-snippet-idea-list',
@@ -12,31 +12,21 @@ import { Snippet, Customer } from '../models';
   encapsulation: ViewEncapsulation.None
 })
 export class SnippetIdeaListComponent implements OnInit {
-  @Input() snippet: Snippet;
-
-  loading: boolean = true;
-  customer: Customer;
+  @Input() ideaId: number;
+  @Input() limit: number;
+  snippets: Snippet[];
 
   constructor(
-    private interviewService: InterviewService,
+    private ideaService: IdeaService,
     private notificationsService: NotificationsService
-  ) {  }
+  ) { }
 
   ngOnInit() {
-    this.getMetaData();
+    this.ideaService.snippets(this.ideaId)
+      .subscribe(data => { this.snippets = data; });
   }
 
-  getMetaData() {
-    this.interviewService.customer(this.snippet.interview_id)
-    .subscribe(
-      data => {
-          this.customer = data;
-          console.log(this.customer);
-        },
-        err => {
-          this.notificationsService
-          .error('Oops', `There was problem retrieving the customer this snippet. ${err.message}`);
-        }
-    );
+  snippetRemoved(index: number) {
+    this.snippets.splice(index, 1);
   }
 }

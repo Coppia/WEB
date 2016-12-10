@@ -33,3 +33,6 @@
 .snippet-preview  .snippet-date {
     margin: 0 0 0;
 }
+.snippet-preview .buttons {
+    text-align: right;
+}

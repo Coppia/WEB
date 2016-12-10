@@ -16,3 +16,14 @@ h1 {
 .idea-goal {
     color: #4c525d;
 }
+
+.snippet-preview-list {
+    margin-top: 50px;
+    /*font-size: 1.34em;*/
+}
+
+>>> .editable .snippet-preview { 
+    margin-bottom: 1rem;
+    border: solid 1px #dbdcdf;
+    padding: 5px;
+}

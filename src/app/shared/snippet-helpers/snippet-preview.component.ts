@@ -1,7 +1,7 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 import { NotificationsService } from 'angular2-notifications';
-import { InterviewService } from '../services';
+import { InterviewService, SnippetService } from '../services';
 
 import { Snippet, Customer } from '../models';
 
@@ -13,12 +13,16 @@ import { Snippet, Customer } from '../models';
 })
 export class SnippetPreviewComponent implements OnInit {
   @Input() snippet: Snippet;
+  @Input() index: number;
+  @Input() editable: boolean = false;
+  @Output() onRemoved = new EventEmitter<number>();
 
   loading: boolean = true;
   customer: Customer;
 
   constructor(
     private interviewService: InterviewService,
+    private snippetService: SnippetService,
     private notificationsService: NotificationsService
   ) {  }
 
@@ -37,6 +41,20 @@ export class SnippetPreviewComponent implements OnInit {
           this.notificationsService
           .error('Oops', `There was problem retrieving the customer for this snippet. ${err.message}`);
         }
+    );
+  }
+
+  remove(snippet: Snippet, index: number) {
+    debugger;
+    this.snippetService.delete(snippet.id)
+    .subscribe(
+      data => {
+        this.onRemoved.emit(index);
+      },
+      err => {
+        this.notificationsService
+        .error('Oops', `There was problem removing the snippet. ${err.message}`);
+      }
     );
   }
 }

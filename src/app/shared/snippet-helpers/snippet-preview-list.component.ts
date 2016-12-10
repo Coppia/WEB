@@ -11,6 +11,7 @@ import { Snippet } from '../models';
 })
 export class SnippetPreviewListComponent implements OnInit {
   @Input() ideaId: number;
+  @Input() limit: number;
   snippets: Snippet[];
 
   constructor(private ideaService: IdeaService) { }
@@ -18,5 +19,9 @@ export class SnippetPreviewListComponent implements OnInit {
   ngOnInit() {
     this.ideaService.snippets(this.ideaId)
       .subscribe(data => { this.snippets = data; });
+  }
+
+  showLimit() {
+    return this.limit || (this.snippets ? this.snippets.length : 3);
   }
 }
