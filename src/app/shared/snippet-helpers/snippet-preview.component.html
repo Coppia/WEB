@@ -8,6 +8,6 @@
       <span>{{snippet.text}}</span>
     </p>
     <p class="snippet-date" *ngIf="!editable">{{snippet.created_datetime | amDateFormat:'MMM D'}}</p>
-    <p class="buttons" *ngIf="editable"><button (click)="remove(snippet, index)">Remove</button></p>
+    <p class="buttons" *ngIf="editable"><button (click)="remove(snippet, index)" class="btn btn-sm btn-link">remove</button></p>
   </div>
 </div>

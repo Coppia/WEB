@@ -40,13 +40,13 @@ body {
     padding-top:0;
 }
 
-.btn {
+.btn-primary {
     border: solid 1px #fff;
     background-color: #fd9a2b;
     color: #fff;
 }
 
-.btn:hover {
+.btn-primary:hover {
     border: solid 1px #fd9a2b;
     background-color: #ffffff;
     color: #4c525d;

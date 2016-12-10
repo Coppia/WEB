@@ -89,7 +89,7 @@ export class CustomerLookupComponent implements OnInit, OnChanges {
         data => {
             this.customer = data;
             this.searching = false;
-            //this.customer.found = this.customerIsValid();
+            this.customerFound = this.customerIsValid();
             this.customerChange.emit(data);
           },
           err => {
