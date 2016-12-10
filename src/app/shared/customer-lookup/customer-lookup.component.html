@@ -10,8 +10,8 @@
   </p>
 </div>
 <template [ngIf]="search && !searching && !customerFound">
-  Customer Not Found...
+  Customer Not Found
 </template>
 <div class="customer text-xs-center" [ngIf]="!customer?.found && customer?.assigned">
-  <h3 class="customer-name">{{customer?.email}}</h3>
+  No customer data found
 </div>
