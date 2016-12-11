@@ -28,5 +28,6 @@ export class SnippetIdeaListComponent implements OnInit {
 
   snippetRemoved(index: number) {
     this.snippets.splice(index, 1);
+    this.notificationsService.success('Removed', 'Snippet removed successfully!');
   }
 }
