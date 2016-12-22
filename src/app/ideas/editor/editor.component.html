@@ -1,26 +1,29 @@
-<!--<app-snippet-menu [config]="snippetMenuConfig" (onMakeSnippet)="makeSnippet($event)"></app-snippet-menu>-->
+
 <div class="row flex-items-xs-right mb-1">
   <div class="col-xs-2">
-    <button class="btn btn-primary float-xs-right" role="button" (click)="save()">{{ idea.id > 0 ? 'Update' : 'Save' }} Idea</button>
+    <button class="btn btn-primary float-xs-right" role="button" (click)="save()" [disabled]="!editorForm.valid">{{ idea.id > 0 ? 'Update' : 'Save' }} Idea</button>
   </div>
 </div>
+<form [formGroup]="editorForm"  *ngIf="active"  (ngSubmit)="save()">
 <div class="row">
   <div class="col-xs-12 col-xs-12">
-    <h1 class="idea-title" [(contenteditableModel)]="idea.title" [defaultValue]="'Whats the idea?'"></h1>
+    <h1 class="idea-title" contenteditable="true" formControlName="title" [(ngModel)]="idea.title">What's the idea?</h1>
+    <p class="text-warning" *ngIf="formErrors.title" >{{ formErrors.title }}</p>
   </div>
   <div class="col-xs-6 col-lg-6">
     <label>GOAL</label><br>
-    <div class="idea-goal" [(contenteditableModel)]="idea.goal" [defaultValue]="'Whats the goal?'"></div>
+    <div class="idea-goal" contenteditable="true" formControlName="goal" [(ngModel)]="idea.goal">What's the goal?</div>
+    <p class="text-warning" *ngIf="formErrors.goal" >{{ formErrors.goal }}</p>
   </div>
   <div class="col-xs-6 col-lg-6">
     <label>STATUS</label><br>
-    <!--<div class="idea-status" [(contenteditableModel)]="idea.status" [defaultValue]="'Idea Status'"></div>-->
     <div class="idea-status">
-      <select [(ngModel)]="idea.status">
+      <select [(ngModel)]="idea.status" formControlName="status">
         <option value="UNTESTED">UNTESTED</option>
         <option value="TESTING">TESTING</option>
         <option value="TESTED">TESTED</option>
       </select>
+      <p class="text-warning" *ngIf="formErrors.status" >{{ formErrors.status }}</p>
     </div>    
   </div>
   <div class="col-xs-12 col-lg-12">
@@ -29,4 +32,5 @@
     </div>
   </div>
 </div>
+</form>
 <template ngbModalContainer></template>

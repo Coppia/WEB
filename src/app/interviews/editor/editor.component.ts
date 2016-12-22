@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Rx';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -19,7 +20,11 @@ export class EditorComponent implements OnInit {
   interview: Interview = new Interview();
   customer: Customer = new Customer();
   isSubmitting: boolean = false;
+  submitted: boolean = false;
   userId: any;
+  active: boolean = true;
+  editorForm: FormGroup;
+
   snippetMenuConfig: SnippetMenuConfig = new SnippetMenuConfig();
   snippet: Snippet;
 
@@ -30,16 +35,22 @@ export class EditorComponent implements OnInit {
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,
-    private notificationsService: NotificationsService
+    private notificationsService: NotificationsService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
+    this.buildForm();
     // load prefetched interview
     this.route.data.subscribe(
       (data: {interview: Interview}) => {
         if (data.interview) {
           this.interview = data.interview;
           this.getMetaData();
+          this.buildForm();
+          
+          this.active = false;
+          setTimeout(() => this.active = true, 0);
         }
       }
     );
@@ -150,5 +161,68 @@ export class EditorComponent implements OnInit {
     const modalRef = this.modalService.open(SnippetModalComponent);
     modalRef.componentInstance.snippet = this.snippet;
   }
+
+  buildForm(): void {
+    this.editorForm = this.fb.group({
+      'title': [this.interview.title, [
+          Validators.required,
+          Validators.minLength(4)
+        ]
+      ],
+      'notes': [this.interview.notes, [
+          Validators.required,
+          Validators.minLength(4)
+        ]
+      ],
+      'search': [this.search, [
+          Validators.required
+        ]
+      ],
+    });
+
+    this.editorForm.valueChanges
+      .subscribe(data => this.onValueChanged(data));
+
+    this.onValueChanged(); // (re)set validation messages now
+  }
+
+
+  onValueChanged(data?: any) {
+    if (!this.editorForm) { return; }
+    const form = this.editorForm;
+
+    for (const field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
+
+  formErrors = {
+    'title': '',
+    'notes': '',
+    'search': ''
+  };
+
+  validationMessages = {
+    'title': {
+      'required':      'Title is required.',
+      'minlength':     'Title must be at least 4 characters long.'
+    },
+    'notes': {
+      'required':      'Notes are required.',
+      'minlength':     'Notes must be at least 4 characters long.'
+    },
+    'search': {
+      'required':       'Customer email is required.'
+    }
+  };
 
 }

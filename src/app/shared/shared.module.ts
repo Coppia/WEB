@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -8,7 +8,7 @@ import {MomentModule} from 'angular2-moment';
 
 import { CardFooterCreatedComponent } from './card-helpers';
 import { CustomerLookupComponent } from './customer-lookup';
-import { ShowAuthedDirective, ContenteditableModelDirective } from './directives';
+import { ShowAuthedDirective, ContentEditableFormDirective } from './directives';
 import { IdeaPreviewComponent } from './idea-helpers';
 import { InterviewPreviewComponent } from './interview-helpers';
 import { SnippetPreviewComponent, SnippetPreviewListComponent, SnippetIdeaListComponent } from './snippet-helpers/';
@@ -22,11 +22,12 @@ import { SnippetPreviewComponent, SnippetPreviewListComponent, SnippetIdeaListCo
     FormsModule,
     HttpModule,
     MomentModule,
+    ReactiveFormsModule,
     RouterModule
   ],
   declarations: [
     CardFooterCreatedComponent,
-    ContenteditableModelDirective,
+    ContentEditableFormDirective,
     CustomerLookupComponent,
     IdeaPreviewComponent,
     InterviewPreviewComponent,
@@ -40,9 +41,10 @@ import { SnippetPreviewComponent, SnippetPreviewListComponent, SnippetIdeaListCo
     FormsModule,
     HttpModule,
     MomentModule,
+    ReactiveFormsModule,
     RouterModule,
     CardFooterCreatedComponent,
-    ContenteditableModelDirective,
+    ContentEditableFormDirective,
     CustomerLookupComponent,
     IdeaPreviewComponent,
     InterviewPreviewComponent,
