@@ -46,11 +46,29 @@ body {
     color: #fff;
 }
 
-.btn-primary:hover {
+.btn-primary:hover  {
     border: solid 1px #fd9a2b;
     background-color: #ffffff;
     color: #4c525d;
     font-family: 'Roboto', sans-serif;
+}
+
+.btn-primary:active  {
+    border: solid 1px #fd9a2b;
+    background-color: #ffffff;
+    color: #4c525d;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-primary:focus  {
+    border: solid 1px #fd9a2b;
+    background-color: #ffffff;
+    color: #4c525d;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-link {
+    color: #4c525d;
 }
 
 /* End Extend Bootstrap */

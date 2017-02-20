@@ -6,3 +6,11 @@
     max-height: 128px;
     margin: 0 auto;
 }
+
+.customer-name {
+    font-size: 1.25rem;
+}
+
+.customer-title {
+    font-size: 1.0rem;
+}

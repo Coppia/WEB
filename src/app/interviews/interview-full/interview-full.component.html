@@ -2,7 +2,7 @@
   <div class="card-block">
     <div class="row">
       <div class="col-xs-3 col-xl-2 customer">
-        <img class="media-object customer-image rounded-circle" [src]="customer?.image_link || 'http://placebeard.it/64/notag'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
+        <img class="media-object customer-image rounded-circle" [src]="customer?.image_link || './assets/images/co-logo.png'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
         <h4 class="card-title interview-customer">{{customer?.first_name}} {{customer?.last_name}}</h4>  
         <p class="lead company-name">
           <span>{{customer?.company_name }}</span>
