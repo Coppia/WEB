@@ -15,7 +15,7 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "../node_modules/bootstrap/dist/css/bootstrap-flex.css",
+        "assets/styles/bootstrap-flex.scss",
         "styles.css"
       ],
       "scripts": [
@@ -43,7 +43,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "prefixInterfaces": false
   }
 }
