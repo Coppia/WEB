@@ -2,13 +2,13 @@
     <div class="card-block">
       <div class="row">
         <div class="col-xs">
-          <h4 class="card-title interview-customer">{{customer?.first_name}} {{customer?.last_name}}</h4>  
+          <h4 class="card-title interview-customer">{{customer?.first_name || customer?.email }} {{customer?.last_name || ''}}</h4>  
           <p class="lead customer-title">
             <span>{{customer?.company_name || ''}}</span>
           </p>
         </div>
         <div class="col-xs-3">
-          <img class="media-object customer-image rounded-circle" [src]="customer?.image_link || 'http://placebeard.it/64/notag'" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
+          <img class="media-object customer-image rounded-circle" [src]="customer?.image_link || ''" alt="{{customer.first_name}} {{customer.last_name}}" *ngIf="customer" />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <span class="profile-tag">
-    <img class="customer-image rounded-circle" [src]="created.created_image_link || 'http://placebeard.it/64/notag'" alt="placeholder" />
+    <img class="customer-image rounded-circle" [src]="created.created_image_link || './assets/images/co-logo.png'" alt="placeholder" />
     {{created.created_by}}
   </span>
   <span class="date-created">{{created.created_datetime | amDateFormat:'MMM D'}}</span>
